@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piccarionex · Automazione AI per il tuo Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --violet:#7B2FBE; --violet-light:#9B59D0; --violet-deep:#5A1A9A;
+      --violet-glow:#C084FC; --accent:#E040FB;
+      --dark:#080814; --dark2:#0E0E1C; --dark3:#161628; --dark4:#1E1E35;
+      --white:#FFFFFF; --gray:#9090A8; --gray-light:#C8C8D8;
+      --card-bg:rgba(123,47,190,0.08); --card-border:rgba(192,132,252,0.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden}
+
+    /* NAV */
+    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 6%;background:rgba(8,8,20,0.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(192,132,252,0.12)}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:var(--gray-light);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--violet-glow)}
+    .nav-cta{background:linear-gradient(135deg,var(--violet),var(--accent));color:var(--white)!important;padding:10px 22px;border-radius:50px;font-weight:600!important;font-size:.88rem!important}
+
+    /* HERO SLIDER */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:140px 6% 100px;position:relative;overflow:hidden}
+    .hero-slider{position:absolute;inset:0;z-index:0}
+    .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out}
+    .hero-slide.active{opacity:1}
+    .hero-slide.active .slide-bg{animation:hero-zoom 10s ease-in-out forwards}
+    .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1)}
+    @keyframes hero-zoom{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,8,20,0.82) 0%,rgba(8,8,20,0.5) 55%,rgba(8,8,20,0.65) 100%),linear-gradient(to top,rgba(8,8,20,0.6) 0%,transparent 45%);z-index:1;pointer-events:none}
+    .hero-content{position:relative;z-index:2;max-width:720px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(123,47,190,0.18);border:1px solid rgba(192,132,252,0.3);border-radius:50px;padding:7px 18px;font-size:.8rem;color:var(--violet-glow);font-weight:600;letter-spacing:.6px;text-transform:uppercase;margin-bottom:24px}
+    .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--violet-glow);animation:pulse-dot 2s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:24px;text-shadow:0 2px 20px rgba(0,0,0,0.5)}
+    .gradient-text{background:linear-gradient(135deg,var(--violet-glow) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-desc{font-size:1.1rem;line-height:1.72;color:rgba(220,220,240,0.92);max-width:520px;margin-bottom:40px;text-shadow:0 1px 10px rgba(0,0,0,0.4)}
+    .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+    .btn-primary{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--accent));color:var(--white);text-decoration:none;padding:15px 34px;border-radius:50px;font-weight:600;font-size:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 30px rgba(123,47,190,0.4)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(123,47,190,0.55)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(192,132,252,0.4);color:var(--violet-glow);text-decoration:none;padding:15px 34px;border-radius:50px;font-weight:600;font-size:1rem;transition:background .2s,border-color .2s}
+    .btn-secondary:hover{background:rgba(123,47,190,0.12);border-color:var(--violet-glow)}
+    .hero-dots{position:absolute;bottom:40px;left:6%;display:flex;gap:10px;z-index:3}
+    .hero-dot{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,0.25);cursor:pointer;transition:background .3s,width .3s}
+    .hero-dot.active{background:var(--violet-glow);width:48px}
+
+    /* STATS */
+    .stats{padding:60px 6%;background:linear-gradient(to right,rgba(123,47,190,0.06),rgba(224,64,251,0.04));border-top:1px solid rgba(192,132,252,0.1);border-bottom:1px solid rgba(192,132,252,0.1)}
+    .stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+    .stat-label{color:var(--gray);font-size:.88rem;margin-top:6px;line-height:1.4}
+
+    /* SECTION BASE */
+    section{padding:90px 6%}
+    .section-tag{display:inline-block;color:var(--violet-glow);font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:16px}
+    .section-sub{color:var(--gray);font-size:1rem;line-height:1.7;max-width:560px}
+    .section-header{margin-bottom:56px}
+    .section-header.centered{text-align:center}
+    .section-header.centered .section-sub{margin:0 auto}
+
+    /* SERVICES */
+    .services{background:var(--dark2)}
+    .services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .service-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:32px 28px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+    .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--violet),var(--accent));opacity:0;transition:opacity .25s}
+    .service-card:hover{transform:translateY(-6px);border-color:rgba(192,132,252,0.4);box-shadow:0 20px 50px rgba(123,47,190,0.18)}
+    .service-card:hover::before{opacity:1}
+    .service-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--violet-deep));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;box-shadow:0 6px 20px rgba(123,47,190,0.35)}
+    .service-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:10px}
+    .service-card p{color:var(--gray);font-size:.9rem;line-height:1.65}
+
+    /* HOW IT WORKS */
+    .how{background:var(--dark)}
+    .how-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+    .steps{display:flex;flex-direction:column;gap:28px}
+    .step{display:flex;gap:20px;align-items:flex-start;padding:24px;border-radius:16px;border:1px solid transparent;transition:background .2s,border-color .2s}
+    .step:hover{background:var(--card-bg);border-color:var(--card-border)}
+    .step-num{width:44px;height:44px;min-width:44px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;box-shadow:0 4px 16px rgba(123,47,190,0.4)}
+    .step-body h4{font-weight:600;font-size:1.02rem;margin-bottom:6px}
+    .step-body p{color:var(--gray);font-size:.9rem;line-height:1.6}
+    .ester-card{background:linear-gradient(135deg,rgba(123,47,190,0.15) 0%,rgba(224,64,251,0.08) 100%);border:1px solid rgba(192,132,252,0.25);border-radius:24px;padding:36px 32px;position:sticky;top:100px}
+    .ester-avatar{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--accent));display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:20px;box-shadow:0 8px 28px rgba(123,47,190,0.45)}
+    .ester-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:6px}
+    .ester-role{color:var(--violet-glow);font-size:.85rem;font-weight:600;margin-bottom:16px}
+    .ester-desc{color:var(--gray-light);font-size:.93rem;line-height:1.7;margin-bottom:24px}
+    .ester-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+    .ester-feat{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--gray-light)}
+    .ester-feat::before{content:'✓';width:22px;height:22px;min-width:22px;border-radius:50%;background:rgba(123,47,190,0.25);color:var(--violet-glow);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+
+    /* CHI SONO */
+    .chi-sono{background:var(--dark2)}
+    .chi-sono-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .chi-sono-visual{position:relative}
+    .chi-sono-img-wrap{width:100%;aspect-ratio:3/4;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,rgba(123,47,190,0.15),rgba(224,64,251,0.08));border:1px solid rgba(192,132,252,0.2);display:flex;align-items:center;justify-content:center}
+    .chi-sono-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
+    .chi-sono-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px}
+    .chi-sono-img-placeholder .placeholder-icon{font-size:4rem;opacity:.4}
+    .chi-sono-img-placeholder p{color:var(--gray);font-size:.85rem;text-align:center}
+    .chi-sono-glow{position:absolute;top:-30px;left:-30px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.3),transparent 70%);pointer-events:none}
+    .chi-sono-badge{position:absolute;bottom:30px;right:-20px;background:rgba(14,14,28,0.95);border:1px solid rgba(192,132,252,0.3);border-radius:16px;padding:16px 20px;backdrop-filter:blur(10px)}
+    .chi-sono-badge .badge-role{color:var(--violet-glow);font-size:.78rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+    .chi-sono-badge .badge-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-top:4px}
+    .chi-sono-content{}
+    .chi-sono-quote{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;line-height:1.5;color:var(--white);margin-bottom:28px;padding-left:24px;border-left:3px solid var(--violet-glow)}
+    .chi-sono-bio{color:var(--gray-light);font-size:.97rem;line-height:1.75;margin-bottom:32px}
+    .chi-sono-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+    .chi-tag{background:rgba(123,47,190,0.15);border:1px solid rgba(192,132,252,0.25);border-radius:50px;padding:8px 18px;font-size:.82rem;color:var(--violet-glow);font-weight:600}
+
+    /* MEPA */
+    .mepa{background:var(--dark)}
+    .mepa-box{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(224,64,251,0.06));border:1px solid rgba(192,132,252,0.25);border-radius:28px;padding:56px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .mepa-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(123,47,190,0.2);border:1px solid rgba(192,132,252,0.35);border-radius:50px;padding:8px 20px;font-size:.8rem;color:var(--violet-glow);font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
+    .mepa-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;line-height:1.25;margin-bottom:18px}
+    .mepa-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+    .mepa-item{display:flex;align-items:center;gap:12px;font-size:.93rem;color:var(--gray-light)}
+    .mepa-item::before{content:'✓';width:24px;height:24px;min-width:24px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800}
+    .mepa-video-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(192,132,252,0.2);box-shadow:0 20px 60px rgba(123,47,190,0.25)}
+    .mepa-video-wrap iframe{display:block;width:100%;aspect-ratio:16/9}
+
+    /* VIDEO NICCHIE — TABS */
+    .video-nicchie{background:var(--dark2)}
+    .video-tabs-wrap{max-width:1100px;margin:0 auto}
+    .video-tabs{display:flex;gap:12px;margin-bottom:44px;flex-wrap:wrap;justify-content:center}
+    .vtab{background:transparent;border:1.5px solid rgba(192,132,252,0.3);color:var(--gray-light);padding:13px 30px;border-radius:50px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif}
+    .vtab:hover{border-color:var(--violet-glow);color:var(--violet-glow)}
+    .vtab.active{background:linear-gradient(135deg,var(--violet),var(--accent));border-color:transparent;color:#fff;box-shadow:0 6px 24px rgba(123,47,190,0.4)}
+    .vtab-content{display:none}
+    .vtab-content.active{display:block;animation:tab-in .35s ease}
+    @keyframes tab-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .vtab-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;background:var(--card-bg);border:1px solid var(--card-border);border-radius:24px;padding:48px}
+    .vtab-video{border-radius:16px;overflow:hidden;border:1px solid rgba(192,132,252,0.2);box-shadow:0 16px 50px rgba(123,47,190,0.22)}
+    .vtab-video iframe{display:block;width:100%;aspect-ratio:16/9}
+    .vtab-text h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;margin-bottom:16px;line-height:1.3}
+    .vtab-text p{color:var(--gray-light);font-size:.97rem;line-height:1.72;margin-bottom:28px}
+
+    /* NICHES */
+    .niches{background:var(--dark)}
+    .niches-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .niche-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:36px 30px;display:flex;gap:24px;align-items:flex-start;transition:transform .25s,border-color .25s}
+    .niche-card:hover{transform:translateY(-4px);border-color:rgba(192,132,252,0.4)}
+    .niche-icon{font-size:2.4rem;min-width:56px;text-align:center}
+    .niche-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:10px}
+    .niche-card p{color:var(--gray);font-size:.9rem;line-height:1.65}
+
+    /* DEMO / CALENDAR */
+    .demo{background:var(--dark2)}
+    .demo-box{max-width:900px;margin:0 auto;text-align:center}
+    .demo-box h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;margin-bottom:16px}
+    .demo-box p{color:var(--gray-light);font-size:1rem;line-height:1.7;margin-bottom:40px}
+    .demo-placeholder{background:var(--card-bg);border:1px solid var(--card-border);border-radius:24px;padding:60px 40px;display:flex;flex-direction:column;align-items:center;gap:20px}
+    .demo-placeholder .demo-icon{font-size:3rem}
+    .demo-placeholder p{color:var(--gray);font-size:.95rem}
+
+    /* CTA */
+    .cta-section{background:var(--dark);text-align:center}
+    .cta-box{max-width:760px;margin:0 auto;background:linear-gradient(135deg,rgba(123,47,190,0.18),rgba(224,64,251,0.08));border:1px solid rgba(192,132,252,0.25);border-radius:32px;padding:70px 50px;position:relative;overflow:hidden}
+    .cta-box::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.25),transparent 70%)}
+    .cta-box h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;margin-bottom:18px;position:relative;z-index:1}
+    .cta-box p{color:var(--gray-light);font-size:1rem;line-height:1.7;margin-bottom:36px;position:relative;z-index:1}
+    .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+    .btn-whatsapp{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:15px 32px;border-radius:50px;font-weight:600;font-size:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(37,211,102,0.35)}
+    .btn-whatsapp:hover{transform:translateY(-2px)}
+
+    /* FOOTER */
+    footer{background:var(--dark2);border-top:1px solid rgba(192,132,252,0.1);padding:44px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+    .footer-brand{display:flex;flex-direction:column;gap:4px}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .footer-domain{font-size:.8rem;font-weight:500;color:var(--violet-glow);letter-spacing:.5px}
+    .footer-copy{color:var(--gray);font-size:.85rem}
+    .footer-links{display:flex;gap:24px}
+    .footer-links a{color:var(--gray);text-decoration:none;font-size:.85rem;transition:color .2s}
+    .footer-links a:hover{color:var(--violet-glow)}
+
+    /* BROWSER CHROME (dolce-memorie preview) */
+    .vtab-site-preview{overflow:hidden}
+    .browser-chrome{display:flex;align-items:center;gap:10px;background:#12121f;padding:10px 14px;border-radius:12px 12px 0 0;border:1px solid rgba(192,132,252,0.15);border-bottom:none}
+    .browser-dots{display:flex;gap:6px}
+    .browser-dots span{width:11px;height:11px;border-radius:50%}
+    .browser-dots span:nth-child(1){background:#ff5f57}
+    .browser-dots span:nth-child(2){background:#febc2e}
+    .browser-dots span:nth-child(3){background:#28c840}
+    .browser-url{flex:1;background:rgba(255,255,255,0.06);border-radius:6px;padding:5px 12px;font-size:.77rem;color:var(--gray);font-family:monospace;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .browser-open{color:var(--violet-glow);font-size:1.1rem;text-decoration:none;transition:color .2s;line-height:1}
+    .browser-open:hover{color:var(--accent)}
+    .vtab-site-preview iframe{display:block;width:100%;height:380px;border:1px solid rgba(192,132,252,0.15);border-top:none;border-radius:0 0 12px 12px}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .how-layout,.chi-sono-layout,.mepa-box,.vtab-layout{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .niches-grid{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .ester-card{position:static}
+      .mepa-box{padding:36px 28px}
+      footer{flex-direction:column;text-align:center}
+      .chi-sono-badge{right:0}
+    }
+    @media(max-width:600px){
+      nav{padding:14px 4%}
+      .nav-links{display:none}
+      .hero{padding:100px 4% 60px}
+      section{padding:70px 4%}
+      .services-grid{grid-template-columns:1fr}
+      .cta-box{padding:48px 24px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Fabbiola Piccari</span>
+  <ul class="nav-links">
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#come-funziona">Come Funziona</a></li>
+    <li><a href="#chi-sono">Chi Sono</a></li>
+    <li><a href="#nicchie">Nicchie</a></li>
+    <li><a href="#demo" class="nav-cta">Prenota Demo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-slider">
+    <div class="hero-slide active">
+      <div class="slide-bg" style="background-image:url('hero-roma.jpg')"></div>
+    </div>
+    <div class="hero-slide">
+      <div class="slide-bg" style="background-image:url('hero-milan.jpg')"></div>
+    </div>
+    <div class="hero-slide">
+      <div class="slide-bg" style="background-image:url('hero-mask.jpg')"></div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🤖 AI Automation per Business</div>
+    <h1>Più Appuntamenti.<br/><span class="gradient-text">Zero Lavoro Manuale.</span></h1>
+    <p class="hero-desc">Automatizziamo il tuo sistema di acquisizione clienti con AI, workflow intelligenti e agenti vocali — così tu chiudi vendite, non insegui lead.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/393297341638" class="btn-primary">Prenota Demo Gratuita</a>
+      <a href="#servizi" class="btn-secondary">Scopri i Servizi ↓</a>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goToSlide(0)"></div>
+    <div class="hero-dot" onclick="goToSlide(1)"></div>
+    <div class="hero-dot" onclick="goToSlide(2)"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div><span class="stat-num">24/7</span><div class="stat-label">Automazione attiva senza fermarsi mai</div></div>
+    <div><span class="stat-num">−70%</span><div class="stat-label">Riduzione costo acquisizione lead</div></div>
+    <div><span class="stat-num">+40%</span><div class="stat-label">Aumento tasso di conversione</div></div>
+    <div><span class="stat-num">48h</span><div class="stat-label">Implementazione sistema completo</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servizi">
+  <div class="section-header centered">
+    <span class="section-tag">I Nostri Servizi</span>
+    <h2 class="section-title">Tutto ciò che serve per<br/><span class="gradient-text">scalare il tuo business</span></h2>
+    <p class="section-sub">Sistemi AI chiavi in mano. Dal primo contatto alla chiusura del contratto.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">⚡</div><h3>Automazione Lead</h3><p>Cattura, qualifica e nutre automaticamente i lead con workflow AI su misura.</p></div>
+    <div class="service-card"><div class="service-icon">🤖</div><h3>Agente Vocale AI</h3><p>Ester risponde, fissa appuntamenti e segue i prospect 24 ore su 24, 7 giorni su 7.</p></div>
+    <div class="service-card"><div class="service-icon">📅</div><h3>Booking Automatico</h3><p>Sistema di prenotazione che azzera le no-show con promemoria automatici.</p></div>
+    <div class="service-card"><div class="service-icon">📊</div><h3>CRM Intelligente</h3><p>Pipeline di vendita automatizzata con scoring dei lead e reportistica in tempo reale.</p></div>
+    <div class="service-card"><div class="service-icon">🎯</div><h3>Funnel di Acquisizione</h3><p>Landing page ad alta conversione, campagne Meta/Google ottimizzate e tracciamento ROI.</p></div>
+    <div class="service-card"><div class="service-icon">🔗</div><h3>Integrazioni API</h3><p>Connetti CRM, calendario, WhatsApp, email in un unico sistema fluido e automatizzato.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="come-funziona">
+  <div class="how-layout">
+    <div>
+      <div class="section-header">
+        <span class="section-tag">Come Funziona</span>
+        <h2 class="section-title">Da lead a cliente in<br/><span class="gradient-text">4 passaggi automatici</span></h2>
+        <p class="section-sub">Il tuo sistema lavora anche mentre dormi.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Cattura il Lead</h4><p>Il sistema cattura e registra automaticamente ogni prospect nel CRM.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Qualificazione AI</h4><p>Ester lo contatta entro 5 minuti e fissa la demo nel tuo calendario.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Nurturing Automatico</h4><p>Sequenze personalizzate via email e WhatsApp mantengono il lead caldo.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Tu Chiudi la Vendita</h4><p>Arrivi alla call con un prospect qualificato. Il tuo unico lavoro è chiudere.</p></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="ester-card">
+        <div class="ester-avatar">🤖</div>
+        <div class="ester-name">Ester</div>
+        <div class="ester-role">Coordinatrice AI · Piccarionex</div>
+        <p class="ester-desc">Agente vocale AI sempre disponibile. Risponde, gestisce appuntamenti e qualifica i lead in italiano perfetto.</p>
+        <div class="ester-features">
+          <div class="ester-feat">Risponde in meno di 5 minuti</div>
+          <div class="ester-feat">100 conversazioni simultanee</div>
+          <div class="ester-feat">Integrata con il tuo calendario</div>
+          <div class="ester-feat">Personalizzabile per settore</div>
+          <div class="ester-feat">Attiva 24/7, 365 giorni l'anno</div>
+        </div>
+        <a href="https://wa.me/393297341638" class="btn-primary" style="text-align:center;display:block;">Parla con Ester →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SONO -->
+<section class="chi-sono" id="chi-sono">
+  <div class="chi-sono-layout">
+    <div class="chi-sono-visual">
+      <div class="chi-sono-glow"></div>
+      <div class="chi-sono-img-wrap">
+        <!-- Sostituisci con: <img src="fabbiola.jpg" alt="Fabbiola Piccari" /> -->
+        <div class="chi-sono-img-placeholder">
+          <span class="placeholder-icon">👩‍💼</span>
+          <p>Foto professionale<br/>in arrivo</p>
+        </div>
+      </div>
+      <div class="chi-sono-badge">
+        <div class="badge-role">Direttrice Agenti AI</div>
+        <div class="badge-name">Fabbiola Piccari</div>
+      </div>
+    </div>
+    <div class="chi-sono-content">
+      <span class="section-tag">Chi Sono</span>
+      <h2 class="section-title">"Velocità, competenza<br/>e <span class="gradient-text">risultati concreti</span> —<br/>in una sola persona."</h2>
+      <p class="chi-sono-bio">Sono Fabbiola Piccari, Economista e specialista in AI Automation. Progetto e implemento sistemi di acquisizione clienti ad alto rendimento che combinano agenti AI, workflow automatizzati e strategie di marketing digitale per generare più prospect qualificati, ridurre i costi e aumentare le conversioni — in qualsiasi settore e lingua.</p>
+      <div class="chi-sono-tags">
+        <span class="chi-tag">🎓 Economista</span>
+        <span class="chi-tag">🤖 AI Automation</span>
+        <span class="chi-tag">🏛️ Approvata MEPA</span>
+        <span class="chi-tag">🎯 High Ticket Closer</span>
+        <span class="chi-tag">🌍 IT · ES · EN</span>
+      </div>
+      <a href="#demo" class="btn-primary">Prenota la tua Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MEPA -->
+<section class="mepa" id="mepa">
+  <div class="mepa-box">
+    <div>
+      <div class="mepa-badge">🏛️ Pubblica Amministrazione</div>
+      <h2 class="mepa-title">Servizi Approvati nel<br/><span class="gradient-text">Catalogo MEPA</span></h2>
+      <p style="color:var(--gray-light);font-size:.97rem;line-height:1.7;margin-bottom:24px;">Digitalizza i servizi al cittadino con Agenti IA su misura. Acquisto diretto tramite MEPA senza gara d'appalto.</p>
+      <div class="mepa-list">
+        <div class="mepa-item">Acquisto diretto tramite MEPA</div>
+        <div class="mepa-item">Agente Vocale multilingue (IT, EN, ES, AR)</div>
+        <div class="mepa-item">Automazione richieste e appuntamenti</div>
+        <div class="mepa-item">Implementazione rapida senza stravolgere i sistemi esistenti</div>
+        <div class="mepa-item">Assistenza 24/7 senza aumentare il personale</div>
+      </div>
+      <a href="https://wa.me/393297341638" class="btn-primary">Richiedi Informazioni PA →</a>
+    </div>
+    <div class="mepa-video-wrap">
+      <iframe src="https://www.youtube.com/embed/x40UhdVRMdU" title="MEPA Piccarionex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO NICCHIE — TABS -->
+<section class="video-nicchie" id="nicchie-video">
+  <div class="section-header centered">
+    <span class="section-tag">Soluzione per ogni Settore</span>
+    <h2 class="section-title">AI su misura per<br/><span class="gradient-text">il tuo settore</span></h2>
+    <p class="section-sub">Guarda i nostri sistemi AI in azione. Clicca sul tuo settore.</p>
+  </div>
+  <div class="video-tabs-wrap">
+    <div class="video-tabs">
+      <button class="vtab active" onclick="switchTab(0)">🦷 Clinica Dentale</button>
+      <button class="vtab" onclick="switchTab(1)">💬 Assistente Clienti</button>
+      <button class="vtab" onclick="switchTab(2)">🏠 Immobiliare</button>
+      <button class="vtab" onclick="switchTab(3)">🍽️ Ristorazione</button>
+    </div>
+
+    <!-- TAB 1: CLINICA DENTALE -->
+    <div class="vtab-content active" id="vtab-0">
+      <div class="vtab-layout">
+        <div class="vtab-video">
+          <iframe src="https://www.youtube.com/embed/cnCiXB5aJy4" title="Clinica Dentale AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="vtab-text">
+          <span class="section-tag">Cliniche Dentali</span>
+          <h3>Agenda sempre piena.<br/>No-show azzerati.</h3>
+          <p>Il tuo Agente AI risponde a ogni richiesta, fissa appuntamenti e invia promemoria automatici 24/7. Riduci le cancellazioni e aumenta il fatturato senza assumere personale.</p>
+          <a href="https://wa.me/393297341638" class="btn-primary">Prenota Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: ASSISTENTE CLIENTI -->
+    <div class="vtab-content" id="vtab-1">
+      <div class="vtab-layout">
+        <div class="vtab-video">
+          <iframe src="https://www.youtube.com/embed/xy2GTJ4iU68" title="Assistente Clienti AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="vtab-text">
+          <span class="section-tag">Assistente Clienti</span>
+          <h3>Il tuo assistente AI.<br/>Sempre in ascolto.</h3>
+          <p>Il tuo Agente IA risponde alle domande dei clienti, prenota appuntamenti, invia conferme automatiche e gestisce richieste di qualsiasi tipo — su WhatsApp, telefono e webchat.</p>
+          <a href="https://wa.me/393297341638" class="btn-primary">Prenota Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: IMMOBILIARE -->
+    <div class="vtab-content" id="vtab-2">
+      <div class="vtab-layout">
+        <div class="vtab-video">
+          <iframe src="https://www.youtube.com/embed/3X9rwqF11d4" title="Immobiliare AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="vtab-text">
+          <span class="section-tag">Immobiliare</span>
+          <h3>Nessuna opportunità<br/>persa per una risposta in ritardo.</h3>
+          <p>I nostri Agenti IA gestiscono le richieste sugli immobili 24/7, filtrano acquirenti e affittuari seri e fissano visite sul tuo calendario anche mentre dormi.</p>
+          <a href="https://wa.me/393297341638" class="btn-primary">Prenota Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: RISTORAZIONE — DOLCE MEMORIE -->
+    <div class="vtab-content" id="vtab-3">
+      <div class="vtab-layout">
+        <div class="vtab-video vtab-site-preview">
+          <div class="browser-chrome">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <span class="browser-url">dolce-memorie.vercel.app</span>
+            <a href="https://dolce-memorie.vercel.app" target="_blank" class="browser-open" title="Apri in nuova scheda">↗</a>
+          </div>
+          <iframe src="https://dolce-memorie.vercel.app" title="Dolce Memorie — Sito AI" frameborder="0" scrolling="yes"></iframe>
+        </div>
+        <div class="vtab-text">
+          <span class="section-tag">Ristorazione & Food</span>
+          <h3>Un sito che converte<br/>come un maître di lusso.</h3>
+          <p>Pagina web con AI integrata, booking automatico e esperienza cliente premium per ristoranti e locali di alto livello. Vedi il sito live qui accanto — costruito con Claude AI + Vercel.</p>
+          <a href="https://dolce-memorie.vercel.app" target="_blank" class="btn-secondary" style="margin-bottom:16px;">Vedi sito in vivo ↗</a>
+          <br/>
+          <a href="https://wa.me/393297341638" class="btn-primary" style="margin-top:16px;display:inline-block;">Voglio uno così →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NICCHIE CARDS -->
+<section class="niches" id="nicchie">
+  <div class="section-header centered">
+    <span class="section-tag">Settori</span>
+    <h2 class="section-title">Specializzati nel tuo settore</h2>
+    <p class="section-sub">Sistemi costruiti per ogni nicchia di mercato.</p>
+  </div>
+  <div class="niches-grid">
+    <div class="niche-card"><div class="niche-icon">🦷</div><div><h3>Cliniche Dentali</h3><p>Riduci le no-show dell'80%, automatizza promemoria e follow-up. Studio sempre pieno.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">✨</div><div><h3>Centro Estetico</h3><p>Fidelizza con riprenotazioni automatiche e referral che portano nuovi clienti ogni mese.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">🏠</div><div><h3>Agenzie Immobiliari</h3><p>Qualifica acquirenti, fissa visite e mantieni il contatto con i venditori automaticamente.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">🏛️</div><div><h3>Pubblica Amministrazione</h3><p>Servizi approvati MEPA. Digitalizza i comuni con agenti AI multilingue 24/7.</p></div></div>
+  </div>
+</section>
+
+<!-- DEMO BOOKING -->
+<section class="demo" id="demo">
+  <div class="demo-box">
+    <span class="section-tag" style="display:block;margin-bottom:14px;">Prenota la tua Demo</span>
+    <h2>Non crederci.<br/><span class="gradient-text">Verificalo dal vivo.</span></h2>
+    <p>Demo gratuita di 30 minuti via Google Meet. Ti mostro come il sistema funzionerà per il tuo settore specifico.</p>
+    <div class="demo-placeholder">
+      <div class="demo-icon">📅</div>
+      <p style="font-size:1rem;color:var(--white);font-weight:600;">Calendario in arrivo</p>
+      <p>Nel frattempo prenota direttamente via WhatsApp o email</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <a href="https://wa.me/393297341638" class="btn-whatsapp">💬 WhatsApp</a>
+        <a href="mailto:fabbiola@piccarionex.online" class="btn-primary">📧 Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contatti">
+  <div class="cta-box">
+    <h2>Pronto a far lavorare con un<br/><span class="gradient-text">sistema 24/7</span> per il tuo business?</h2>
+    <p>Demo gratuita di 30 minuti. Ti mostro come il sistema funzionerà per il tuo settore.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/393297341638" class="btn-whatsapp">💬 WhatsApp</a>
+      <a href="mailto:fabbiola@piccarionex.online" class="btn-primary">Prenota Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="footer-logo">Piccarionex</span>
+    <span class="footer-domain">piccarionex.online</span>
+  </div>
+  <span class="footer-copy">© 2026 Piccarionex · Fabbiola Piccari · Pescara, Italia</span>
+  <div class="footer-links">
+    <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
+    <a href="https://wa.me/393297341638">+39 329 734 1638</a>
+    <a href="https://www.instagram.com/fabbiolapiccari.digitalmkt" target="_blank">@fabbiolapiccari.digitalmkt</a>
+  </div>
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let current = 0;
+  let timer;
+
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    slides[current].querySelector('.slide-bg').style.animation = 'none';
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    const bg = slides[current].querySelector('.slide-bg');
+    bg.style.animation = 'none';
+    bg.offsetHeight;
+    bg.style.animation = '';
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 6000);
+  }
+
+  function nextSlide() {
+    goToSlide((current + 1) % slides.length);
+  }
+
+  function switchTab(n) {
+    document.querySelectorAll('.vtab').forEach((t, i) => t.classList.toggle('active', i === n));
+    document.querySelectorAll('.vtab-content').forEach((c, i) => c.classList.toggle('active', i === n));
+  }
+
+  timer = setInterval(nextSlide, 6000);
+</script>
+</body>
+</html>
