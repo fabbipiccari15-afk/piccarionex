@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termini e Condizioni · Piccarionex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--violet:#7B2FBE;--violet-light:#9B59D0;--violet-glow:#C084FC;--accent:#E040FB;--dark:#080814;--dark2:#0E0E1C;--white:#FFFFFF;--gray:#9090A8;--gray-light:#C8C8D8;--card-bg:rgba(123,47,190,0.08);--card-border:rgba(192,132,252,0.18)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);line-height:1.75;min-height:100vh}
+    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 6%;background:rgba(8,8,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(192,132,252,0.12)}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+    .nav-back{color:var(--gray-light);text-decoration:none;font-size:.9rem;font-weight:500;border:1px solid rgba(192,132,252,0.3);padding:8px 18px;border-radius:50px;transition:all .2s}
+    .nav-back:hover{border-color:var(--violet-glow);color:var(--violet-glow)}
+    main{max-width:860px;margin:0 auto;padding:120px 6% 90px}
+    .doc-header{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid rgba(192,132,252,0.15)}
+    .doc-tag{display:inline-block;color:var(--violet-glow);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;background:rgba(123,47,190,0.12);border:1px solid rgba(192,132,252,0.22);border-radius:50px;padding:6px 16px}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;margin-bottom:16px}
+    .gradient-text{background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .doc-meta{color:var(--gray);font-size:.88rem;margin-top:8px}
+    .titolare-box{background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(224,64,251,0.06));border:1px solid rgba(192,132,252,0.25);border-radius:20px;padding:28px 32px;margin-bottom:48px}
+    .titolare-box .box-label{color:var(--violet-glow);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .titolare-box p{color:var(--gray-light);font-size:.95rem;line-height:1.9;margin-bottom:0}
+    .titolare-box strong{color:var(--white);font-weight:600}
+    .titolare-box a{color:var(--violet-glow);text-decoration:none}
+    .titolare-box a:hover{text-decoration:underline}
+    .forfettario-line{margin-top:14px;padding-top:14px;border-top:1px solid rgba(192,132,252,0.15);font-size:.88rem;color:var(--gray);font-style:italic}
+    h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin:44px 0 16px;color:var(--white);display:flex;align-items:center;gap:10px}
+    h2 .sec-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;min-width:32px;background:linear-gradient(135deg,var(--violet),var(--accent));border-radius:50%;font-size:.8rem;font-weight:800;color:#fff;font-family:'Inter',sans-serif}
+    p{color:var(--gray-light);font-size:.97rem;line-height:1.78;margin-bottom:16px}
+    ul{color:var(--gray-light);font-size:.97rem;line-height:1.78;margin-bottom:16px;padding-left:0;list-style:none}
+    ul li{padding:6px 0 6px 24px;position:relative}
+    ul li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--violet-glow),var(--accent))}
+    ul li strong{color:var(--white);font-weight:600}
+    a{color:var(--violet-glow);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .divider{border:none;border-top:1px solid rgba(192,132,252,0.1);margin:12px 0}
+    .accept-box{background:rgba(123,47,190,0.08);border:1px solid rgba(192,132,252,0.2);border-radius:16px;padding:24px 28px;margin-top:24px}
+    .accept-box p{margin-bottom:0;font-size:.95rem}
+    .accept-box strong{color:var(--white)}
+    .clause-list{margin-top:12px}
+    .clause-list li{font-size:.93rem}
+    .doc-footer-links{display:flex;gap:24px;margin-top:56px;padding-top:36px;border-top:1px solid rgba(192,132,252,0.15);flex-wrap:wrap}
+    .doc-footer-links a{color:var(--gray);text-decoration:none;font-size:.88rem;transition:color .2s}
+    .doc-footer-links a:hover{color:var(--violet-glow)}
+    footer{background:var(--dark2);border-top:1px solid rgba(192,132,252,0.1);padding:32px 6%;text-align:center;margin-top:60px}
+    footer p{color:var(--gray);font-size:.85rem}
+    footer a{color:var(--violet-glow)}
+    @media(max-width:600px){main{padding:100px 4% 60px}.titolare-box{padding:20px 20px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Piccarionex</a>
+  <a href="index.html" class="nav-back">← Torna al sito</a>
+</nav>
+<main>
+  <div class="doc-header">
+    <div class="doc-tag">Documento Legale</div>
+    <h1>Termini e <span class="gradient-text">Condizioni</span></h1>
+    <p class="doc-meta">piccarionex.online &nbsp;·&nbsp; Ultimo aggiornamento: 15 ottobre 2026</p>
+  </div>
+  <div class="titolare-box">
+    <div class="box-label">Dati del Titolare (Art. 7 D.lgs. 70/2003)</div>
+    <p>
+      <strong>Fabbiola Piccari</strong> | piccarionex.online<br/>
+      Domicilio: Via Lago Isoletta 7, 65129 Pescara (Abruzzo), Italia<br/>
+      Codice Fiscale: PCCFBL78D52Z614O<br/>
+      Email: <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
+    </p>
+    <p class="forfettario-line">Fabbiola Piccari — libera professionista in regime forfettario ai sensi della L. 190/2014, con sede in Pescara (PE), Italia.</p>
+  </div>
+  <h2><span class="sec-num">1</span> Ambito di Applicazione</h2>
+  <p>Le presenti Condizioni Generali regolano:</p>
+  <ul>
+    <li>L'accesso e l'uso del sito web di piccarionex.online</li>
+    <li>La stipula di servizi offerti da piccarionex.online</li>
+    <li>I rapporti contrattuali con i clienti</li>
+  </ul>
+  <p>L'accesso al sito implica accettazione espressa delle presenti condizioni ai sensi degli artt. 1321 e ss. del Codice Civile Italiano.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">2</span> Oggetto del Contratto</h2>
+  <p>Il presente documento disciplina la prestazione di servizi professionali offerti da piccarionex.online nel settore dei servizi digitali professionali (consulenza, supporto, soluzioni tecniche o commerciali). La descrizione specifica di ciascun servizio sarà dettagliata nel sito web, in un preventivo personalizzato o in un contratto firmato tra le parti.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">3</span> Formazione del Contratto</h2>
+  <p>Il contratto si considererà concluso quando il cliente accetti la proposta economica inviata da piccarionex.online e si confermi il pagamento quando richiesto. L'accettazione può avvenire per iscritto, via email o mezzo elettronico equivalente.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">4</span> Prezzi e Fatturazione</h2>
+  <p>I prezzi sono espressi in euro (€) e potranno essere soggetti a variazioni giustificate.</p>
+  <ul>
+    <li>Fabbiola Piccari / piccarionex.online opera in <strong>Regime Forfettario</strong> ai sensi dell'art. 1, commi 54-89, Legge 190/2014</li>
+    <li>Le fatture emesse <strong>non includono IVA</strong></li>
+    <li>La fattura viene emessa secondo la normativa fiscale italiana vigente</li>
+    <li>Il mancato pagamento autorizza il Titolare a sospendere il servizio (Art. 1460 C.C.)</li>
+  </ul>
+  <hr class="divider"/>
+  <h2><span class="sec-num">5</span> Diritto di Recesso</h2>
+  <p>Quando il cliente abbia la qualifica di consumatore, potrà esercitare il diritto di recesso entro 14 giorni naturali dalla conclusione del contratto (Artt. 52 e ss. D.lgs. 206/2005). Il diritto non sarà applicabile quando il servizio sia stato completamente eseguito con il consenso espresso previo, o quando si tratti di servizi personalizzati iniziati con autorizzazione espressa del consumatore. La comunicazione dovrà essere effettuata per iscritto.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">6</span> Obblighi del Cliente</h2>
+  <p>Il cliente si impegna a:</p>
+  <ul>
+    <li>Fornire dati veritieri e completi</li>
+    <li>Collaborare attivamente nella prestazione del servizio</li>
+    <li>Rispettare le condizioni economiche concordate</li>
+    <li>Non utilizzare il sito per scopi illeciti (Art. 2043 C.C.)</li>
+  </ul>
+  <hr class="divider"/>
+  <h2><span class="sec-num">7</span> Esecuzione del Servizio</h2>
+  <p>Fabbiola Piccari / piccarionex.online si impegna a eseguire i servizi con diligenza professionale (Art. 1176 C.C.) e ad agire secondo buona fede contrattuale (Art. 1375 C.C.). I termini indicati sono orientativi salvo diverso accordo.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">8</span> Limitazione di Responsabilità</h2>
+  <p>Fabbiola Piccari / piccarionex.online non sarà responsabile per danni indiretti o perdita di profitto, guasti tecnici al di fuori del suo controllo, forza maggiore (Art. 1256 C.C.) o comportamenti di terzi fornitori. La responsabilità totale sarà limitata all'importo effettivamente pagato dal cliente per il servizio specifico. Non può essere esclusa la responsabilità in caso di dolo o colpa grave.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">9</span> Proprietà Intellettuale</h2>
+  <p>Tutti i contenuti del sito web sono di proprietà di piccarionex.online o dispongono di licenza legittima. È vietata la loro riproduzione, distribuzione o modifica senza autorizzazione espressa (Legge 633/1941).</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">10</span> Protezione dei Dati Personali</h2>
+  <p>Il trattamento dei dati personali viene effettuato in conformità al Regolamento (UE) 2016/679 e al D.lgs. 196/2003 modificato dal D.lgs. 101/2018. Il dettaglio completo si trova nella <a href="privacy.html">Informativa sulla Privacy</a> pubblicata sul sito.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">11</span> Sospensione o Risoluzione del Contratto</h2>
+  <p>Fabbiola Piccari / piccarionex.online potrà risolvere il contratto in caso di grave inadempimento del cliente, mancato pagamento o uso illecito dei servizi. La risoluzione potrà comportare l'interruzione immediata del servizio (Artt. 1453 e ss. C.C.).</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">12</span> Forza Maggiore</h2>
+  <p>Fabbiola Piccari / piccarionex.online non sarà responsabile per inadempimenti derivanti da eventi imprevedibili o inevitabili quali guasti della rete, catastrofi naturali o atti di autorità pubblica.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">13</span> Legislazione Applicabile e Giurisdizione</h2>
+  <p>Il presente contratto è regolato dalla legislazione italiana (Codice Civile, D.lgs. 70/2003, D.lgs. 206/2005, Regolamento UE 2016/679). Se il cliente è consumatore, sarà competente il tribunale del luogo di residenza o domicilio del consumatore (Art. 66-bis Codice del Consumo). Negli altri casi, sarà competente il Tribunale di Pescara, Italia.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">14</span> Modifiche</h2>
+  <p>Fabbiola Piccari / piccarionex.online potrà modificare le presenti condizioni per motivi legali o tecnici. Le modifiche entreranno in vigore dalla loro pubblicazione.</p>
+  <hr class="divider"/>
+  <div class="accept-box">
+    <p><strong>Accettazione specifica delle clausole (Artt. 1341 e 1342 C.C.)</strong></p>
+    <p style="margin-top:10px;">Il cliente dichiara di accettare espressamente le seguenti clausole:</p>
+    <ul class="clause-list">
+      <li>Limitazione della responsabilità</li>
+      <li>Sospensione e risoluzione del contratto</li>
+      <li>Giurisdizione competente</li>
+      <li>Condizioni economiche</li>
+    </ul>
+  </div>
+  <div class="doc-footer-links">
+    <a href="privacy.html">→ Informativa sulla Privacy</a>
+    <a href="cookie.html">→ Politica sui Cookie</a>
+    <a href="index.html">→ Torna al sito</a>
+  </div>
+</main>
+<footer>
+  <p>© 2026 Piccarionex · Fabbiola Piccari · Pescara, Italia &nbsp;·&nbsp; <a href="index.html">Torna al sito</a></p>
+</footer>
+</body>
+</html>

@@ -3,20 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy, Termini & Cookie — Piccarionex</title>
+  <title>Informativa sulla Privacy · Piccarionex</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --violet:#7B2FBE; --violet-light:#9B59D0; --violet-deep:#5A1A9A;
-      --violet-glow:#C084FC; --accent:#E040FB;
-      --dark:#080814; --dark2:#0E0E1C; --dark3:#161628;
-      --white:#FFFFFF; --gray:#9090A8; --gray-light:#C8C8D8;
-      --card-bg:rgba(123,47,190,0.08); --card-border:rgba(192,132,252,0.18);
-    }
+    :root{--violet:#7B2FBE;--violet-light:#9B59D0;--violet-glow:#C084FC;--accent:#E040FB;--dark:#080814;--dark2:#0E0E1C;--white:#FFFFFF;--gray:#9090A8;--gray-light:#C8C8D8;--card-bg:rgba(123,47,190,0.08);--card-border:rgba(192,132,252,0.18)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;line-height:1.7}
-    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-
-
+    body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);line-height:1.75;min-height:100vh}
+    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 6%;background:rgba(8,8,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(192,132,252,0.12)}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+    .nav-back{color:var(--gray-light);text-decoration:none;font-size:.9rem;font-weight:500;border:1px solid rgba(192,132,252,0.3);padding:8px 18px;border-radius:50px;transition:all .2s}
+    .nav-back:hover{border-color:var(--violet-glow);color:var(--violet-glow)}
+    main{max-width:860px;margin:0 auto;padding:120px 6% 90px}
+    .doc-header{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid rgba(192,132,252,0.15)}
+    .doc-tag{display:inline-block;color:var(--violet-glow);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;background:rgba(123,47,190,0.12);border:1px solid rgba(192,132,252,0.22);border-radius:50px;padding:6px 16px}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;margin-bottom:16px}
+    .gradient-text{background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .doc-meta{color:var(--gray);font-size:.88rem;margin-top:8px}
+    .titolare-box{background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(224,64,251,0.06));border:1px solid rgba(192,132,252,0.25);border-radius:20px;padding:28px 32px;margin-bottom:48px}
+    .titolare-box .box-label{color:var(--violet-glow);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .titolare-box p{color:var(--gray-light);font-size:.95rem;line-height:1.9;margin-bottom:0}
+    .titolare-box strong{color:var(--white);font-weight:600}
+    .titolare-box a{color:var(--violet-glow);text-decoration:none}
+    .titolare-box a:hover{text-decoration:underline}
+    .forfettario-line{margin-top:14px;padding-top:14px;border-top:1px solid rgba(192,132,252,0.15);font-size:.88rem;color:var(--gray);font-style:italic}
+    h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin:44px 0 16px;color:var(--white);display:flex;align-items:center;gap:10px}
+    h2 .sec-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;min-width:32px;background:linear-gradient(135deg,var(--violet),var(--accent));border-radius:50%;font-size:.8rem;font-weight:800;color:#fff;font-family:'Inter',sans-serif}
+    p{color:var(--gray-light);font-size:.97rem;line-height:1.78;margin-bottom:16px}
+    ul{color:var(--gray-light);font-size:.97rem;line-height:1.78;margin-bottom:16px;padding-left:0;list-style:none}
+    ul li{padding:6px 0 6px 24px;position:relative}
+    ul li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--violet-glow),var(--accent))}
+    ul li strong{color:var(--white);font-weight:600}
+    .sub-list{margin-top:8px;margin-left:12px}
+    .sub-list li::before{background:rgba(192,132,252,0.45);width:5px;height:5px;top:15px}
+    a{color:var(--violet-glow);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .divider{border:none;border-top:1px solid rgba(192,132,252,0.1);margin:12px 0}
+    .consent-box{background:rgba(123,47,190,0.08);border:1px solid rgba(192,132,252,0.2);border-radius:16px;padding:24px 28px;margin-top:24px}
+    .consent-item{display:flex;align-items:flex-start;gap:14px;padding:10px 0;color:var(--gray-light);font-size:.95rem}
+    .consent-item:first-child{border-bottom:1px solid rgba(192,132,252,0.1);margin-bottom:4px}
+    .consent-check{width:20px;height:20px;min-width:20px;border:2px solid rgba(192,132,252,0.4);border-radius:4px;margin-top:2px}
+    .doc-footer-links{display:flex;gap:24px;margin-top:56px;padding-top:36px;border-top:1px solid rgba(192,132,252,0.15);flex-wrap:wrap}
+    .doc-footer-links a{color:var(--gray);text-decoration:none;font-size:.88rem;transition:color .2s}
+    .doc-footer-links a:hover{color:var(--violet-glow)}
+    footer{background:var(--dark2);border-top:1px solid rgba(192,132,252,0.1);padding:32px 6%;text-align:center;margin-top:60px}
+    footer p{color:var(--gray);font-size:.85rem}
+    footer a{color:var(--violet-glow)}
+    @media(max-width:600px){main{padding:100px 4% 60px}.titolare-box{padding:20px 20px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Piccarionex</a>
+  <a href="index.html" class="nav-back">← Torna al sito</a>
+</nav>
+<main>
+  <div class="doc-header">
+    <div class="doc-tag">Documento Legale</div>
+    <h1>Informativa sulla <span class="gradient-text">Privacy</span></h1>
+    <p class="doc-meta">piccarionex.online &nbsp;·&nbsp; Ultimo aggiornamento: 15 ottobre 2026</p>
+  </div>
+  <div class="titolare-box">
+    <div class="box-label">Identità del Titolare del Trattamento</div>
+    <p>
+      <strong>Fabbiola Piccari</strong> | piccarionex.online<br/>
+      Domicilio: Via Lago Isoletta 7, 65129 Pescara (Abruzzo), Italia<br/>
+      Codice Fiscale: PCCFBL78D52Z614O<br/>
+      Email: <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
+    </p>
+    <p class="forfettario-line">Fabbiola Piccari — libera professionista in regime forfettario ai sensi della L. 190/2014, con sede in Pescara (PE), Italia.</p>
+  </div>
+  <h2><span class="sec-num">1</span> Quadro Normativo Applicabile</h2>
+  <p>Il trattamento dei dati personali si svolge conformemente a:</p>
+  <ul>
+    <li>Regolamento (UE) 2016/679 del Parlamento Europeo e del Consiglio (GDPR)</li>
+    <li>Decreto Legislativo 196/2003 (Codice in materia di protezione dei dati personali), modificato dal D.lgs. 101/2018</li>
+    <li>Linee guida e disposizioni emesse dal Garante per la Protezione dei Dati Personali</li>
+  </ul>
+  <hr class="divider"/>
+  <h2><span class="sec-num">2</span> Categorie di Dati Personali Raccolti</h2>
+  <p><strong style="color:var(--white)">2.1 Dati identificativi</strong></p>
+  <ul class="sub-list">
+    <li>Nome e cognome</li>
+    <li>Codice fiscale o dati fiscali quando necessario</li>
+  </ul>
+  <p><strong style="color:var(--white)">2.2 Dati di contatto</strong></p>
+  <ul class="sub-list">
+    <li>Indirizzo email</li>
+    <li>Numero di telefono</li>
+    <li>Indirizzo postale</li>
+  </ul>
+  <p><strong style="color:var(--white)">2.3 Dati amministrativi e contrattuali</strong></p>
+  <ul class="sub-list">
+    <li>Informazioni necessarie per la fatturazione</li>
+    <li>Dati relativi alla fornitura del servizio</li>
+  </ul>
+  <p><strong style="color:var(--white)">2.4 Dati di navigazione</strong></p>
+  <ul class="sub-list">
+    <li>Indirizzo IP</li>
+    <li>Tipo di dispositivo e browser</li>
+    <li>Traffico e dati di utilizzo del sito web</li>
+    <li>Cookie tecnici e analitici</li>
+  </ul>
+  <p><strong style="color:var(--white)">2.5 Categorie particolari di dati (se applicabile)</strong></p>
+  <p>Nel caso di trattamento di dati relativi alla salute o ad altre categorie particolari, si applica l'articolo 9 del GDPR, con misure di sicurezza e riservatezza rafforzate. La fornitura dei dati obbligatori è necessaria per l'esecuzione del contratto o per il rispetto di obblighi legali. Il rifiuto potrebbe impedire la fornitura del servizio.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">3</span> Finalità del Trattamento e Base Giuridica</h2>
+  <ul>
+    <li><strong>Gestione richieste di informazioni</strong> — Base giuridica: Art. 6.1.b GDPR (misure precontrattuali)</li>
+    <li><strong>Prestazione di servizi professionali</strong> — Base giuridica: Art. 6.1.b GDPR (esecuzione contrattuale)</li>
+    <li><strong>Adempimento obblighi fiscali e contabili</strong> — Base giuridica: Art. 6.1.c GDPR (obbligo legale)</li>
+    <li><strong>Gestione appuntamenti e consultazioni</strong> — Base giuridica: Esecuzione contrattuale e, se del caso, Art. 9.2.a GDPR</li>
+    <li><strong>Comunicazioni informative o commerciali</strong> — Base giuridica: Art. 6.1.a GDPR (consenso)</li>
+    <li><strong>Analisi statistica e miglioramento del sito</strong> — Base giuridica: Art. 6.1.f GDPR (interesse legittimo)</li>
+  </ul>
+  <hr class="divider"/>
+  <h2><span class="sec-num">4</span> Modalità del Trattamento</h2>
+  <p>Il trattamento viene effettuato mediante strumenti elettronici e/o manuali, rispettando i principi di liceità, lealtà, trasparenza, minimizzazione dei dati, esattezza, limitazione della conservazione, integrità e riservatezza. Vengono adottate misure tecniche e organizzative adeguate conformemente all'Art. 32 GDPR, includendo controlli di accesso e protezione contro accessi non autorizzati.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">5</span> Periodo di Conservazione</h2>
+  <ul>
+    <li><strong>Dati contrattuali e fiscali:</strong> 10 anni conformemente alla normativa fiscale italiana</li>
+    <li><strong>Dati di marketing:</strong> fino alla revoca del consenso</li>
+    <li><strong>Dati sanitari (se applicabile):</strong> conformemente alla normativa sanitaria italiana</li>
+    <li><strong>Dati di navigazione:</strong> come previsto nella <a href="cookie.html">Politica sui Cookie</a></li>
+  </ul>
+  <p>Trascorsi tali periodi, i dati saranno eliminati o anonimizzati.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">6</span> Destinatari dei Dati</h2>
+  <p>I dati potranno essere comunicati a:</p>
+  <ul>
+    <li>Consulenti fiscali e contabili</li>
+    <li>Fornitori di servizi tecnologici e hosting</li>
+    <li>Piattaforme digitali utilizzate per la gestione dell'attività</li>
+    <li>Autorità pubbliche quando richiesto dalla legge</li>
+  </ul>
+  <p>Tutti i terzi agiscono come Responsabili del Trattamento ai sensi dell'Art. 28 GDPR e sono vincolati da contratti di riservatezza.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">7</span> Trasferimenti Internazionali</h2>
+  <p>Se i dati vengono trasferiti al di fuori dello Spazio Economico Europeo (SEE), sarà garantita la conformità al Capitolo V del GDPR mediante decisioni di adeguatezza della Commissione Europea, Clausole Contrattuali Tipo (SCC) o garanzie adeguate equivalenti.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">8</span> Diritti dell'Interessato</h2>
+  <p>L'interessato potrà esercitare in qualsiasi momento:</p>
+  <ul>
+    <li>Diritto di accesso</li>
+    <li>Diritto di rettifica</li>
+    <li>Diritto di cancellazione</li>
+    <li>Diritto di limitazione</li>
+    <li>Diritto di opposizione</li>
+    <li>Diritto alla portabilità</li>
+    <li>Diritto di revocare il consenso</li>
+  </ul>
+  <p>Le richieste dovranno essere inviate a: <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a></p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">9</span> Diritto di Reclamo</h2>
+  <p>L'interessato ha il diritto di presentare un reclamo all'autorità di controllo competente:</p>
+  <ul>
+    <li><strong>Garante per la Protezione dei Dati Personali</strong><br/>Piazza Venezia 11, 00187 Roma – Italia<br/><a href="https://www.garanteprivacy.it" target="_blank">www.garanteprivacy.it</a></li>
+  </ul>
+  <hr class="divider"/>
+  <h2><span class="sec-num">10</span> Tracciamento delle Email</h2>
+  <p>piccarionex.online utilizza pixel di tracciamento nelle comunicazioni email al fine di rilevare se il messaggio è stato aperto e se i link in esso contenuti sono stati cliccati. Tali dati vengono trattati per migliorare l'efficacia delle comunicazioni e sulla base del legittimo interesse del Titolare (Art. 6, par. 1, lett. f GDPR). L'utente può in qualsiasi momento rifiutare la ricezione di future comunicazioni cliccando sul link di disiscrizione presente in calce a ogni email.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">11</span> Minori di Età</h2>
+  <p>Quando il trattamento si basa sul consenso, l'età minima secondo la legislazione italiana è di 14 anni. Nel caso di minori di tale età, sarà necessario il consenso del padre, della madre o del tutore legale.</p>
+  <hr class="divider"/>
+  <h2><span class="sec-num">12</span> Modifiche alla Politica</h2>
+  <p>Fabbiola Piccari / piccarionex.online si riserva il diritto di modificare la presente Politica per adeguarla a cambiamenti normativi, giurisprudenziali o tecnici. Qualsiasi modifica sarà pubblicata in questa stessa sezione con la nuova data di aggiornamento.</p>
+  <hr class="divider"/>
+  <div class="consent-box">
+    <div class="consent-item">
+      <div class="consent-check"></div>
+      <span>Ho letto e accetto l'Informativa sulla Privacy di Fabbiola Piccari | piccarionex.online secondo il Regolamento (UE) 2016/679.</span>
+    </div>
+    <div class="consent-item">
+      <div class="consent-check"></div>
+      <span>Autorizzo il trattamento dei miei dati per ricevere comunicazioni commerciali (opzionale).</span>
+    </div>
+  </div>
+  <div class="doc-footer-links">
+    <a href="cookie.html">→ Politica sui Cookie</a>
+    <a href="termini.html">→ Termini e Condizioni</a>
+    <a href="index.html">→ Torna al sito</a>
+  </div>
+</main>
+<footer>
+  <p>© 2026 Piccarionex · Fabbiola Piccari · Pescara, Italia &nbsp;·&nbsp; <a href="index.html">Torna al sito</a></p>
+</footer>
+</body>
+</html>
