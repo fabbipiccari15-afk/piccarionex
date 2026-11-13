@@ -11,5 +11,126 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);line-height:1.75;min-height:100vh}
-    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-
+    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 6%;background:rgba(8,8,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(192,132,252,0.12)}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+    .nav-back{color:var(--gray-light);text-decoration:none;font-size:.9rem;font-weight:500;border:1px solid rgba(192,132,252,0.3);padding:8px 18px;border-radius:50px;transition:all .2s}
+    .nav-back:hover{border-color:var(--violet-glow);color:var(--violet-glow)}
+    main{max-width:860px;margin:0 auto;padding:120px 6% 90px}
+    .doc-header{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid rgba(192,132,252,0.15)}
+    .doc-tag{display:inline-block;color:var(--violet-glow);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;background:rgba(123,47,190,0.12);border:1px solid rgba(192,132,252,0.22);border-radius:50px;padding:6px 16px}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;margin-bottom:16px}
+    .gradient-text{background:linear-gradient(135deg,var(--violet-glow),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .doc-meta{color:var(--gray);font-size:.88rem;margin-top:8px}
+    .titolare-box{background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(224,64,251,0.06));border:1px solid rgba(192,132,252,0.25);border-radius:20px;padding:28px 32px;margin-bottom:48px}
+    .titolare-box .box-label{color:var(--violet-glow);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .titolare-box p{color:var(--gray-light);font-size:.95rem;line-height:1.8}
+    .titolare-box strong{color:var(--white);font-weight:600}
+    .titolare-box a{color:var(--violet-glow);text-decoration:none}
+    .titolare-box a:hover{text-decoration:underline}
+    .forfettario-line{margin-top:12px;padding-top:12px;border-top:1px solid rgba(192,132,252,0.15);font-size:.88rem;color:var(--gray);font-style:italic}
+    h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin:44px 0 16px;color:var(--white);display:flex;align-items:center;gap:10px}
+    h2 .sec-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;min-width:32px;background:linear-gradient(135deg,var(--violet),var(--accent));border-radius:50%;font-size:.8rem;font-weight:800;color:#fff;font-family:'Inter',sans-serif}
+    p{color:var(--gray-light);font-size:.97rem;line-height:1.78;margin-bottom:16px}
+    ul{color:var(--gray-light);font-size:.97rem;line-height:1.78;margin-bottom:16px;padding-left:0;list-style:none}
+    ul li{padding:6px 0 6px 24px;position:relative}
+    ul li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--violet-glow),var(--accent))}
+    ul li strong{color:var(--white);font-weight:600}
+    a{color:var(--violet-glow);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .divider{border:none;border-top:1px solid rgba(192,132,252,0.1);margin:12px 0}
+    .doc-footer-links{display:flex;gap:24px;margin-top:56px;padding-top:36px;border-top:1px solid rgba(192,132,252,0.15);flex-wrap:wrap}
+    .doc-footer-links a{color:var(--gray);text-decoration:none;font-size:.88rem;transition:color .2s}
+    .doc-footer-links a:hover{color:var(--violet-glow)}
+    footer{background:var(--dark2);border-top:1px solid rgba(192,132,252,0.1);padding:32px 6%;text-align:center;margin-top:60px}
+    footer p{color:var(--gray);font-size:.85rem}
+    footer a{color:var(--violet-glow)}
+    @media(max-width:600px){main{padding:100px 4% 60px}.titolare-box{padding:20px 20px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Piccarionex</a>
+  <a href="index.html" class="nav-back">← Torna al sito</a>
+</nav>
+<main>
+  <div class="doc-header">
+    <div class="doc-tag">Documento Legale</div>
+    <h1>Politica sui <span class="gradient-text">Cookie</span></h1>
+    <p class="doc-meta">piccarionex.online &nbsp;·&nbsp; Ultimo aggiornamento: 15 ottobre 2026</p>
+  </div>
 
+  <div class="titolare-box">
+    <div class="box-label">Titolare del Trattamento</div>
+    <p>
+      <strong>Fabbiola Piccari</strong> | piccarionex.online<br/>
+      Email: <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
+    </p>
+    <p class="forfettario-line">Fabbiola Piccari — libera professionista in regime forfettario ai sensi della L. 190/2014, con sede in Pescara (PE), Italia.</p>
+  </div>
+
+  <h2><span class="sec-num">1</span> Cosa Sono i Cookie</h2>
+  <p>I cookie sono piccoli file di testo che i siti web salvano sul dispositivo dell'utente durante la navigazione. Servono a migliorare l'esperienza di utilizzo e a raccogliere informazioni statistiche.</p>
+
+  <hr class="divider"/>
+
+  <h2><span class="sec-num">2</span> Tipologie di Cookie Utilizzati</h2>
+
+  <p><strong style="color:var(--white)">2.1 Cookie tecnici (sempre attivi)</strong></p>
+  <p>Necessari per il corretto funzionamento del sito. Non richiedono consenso.</p>
+  <ul>
+    <li>Gestione delle sessioni utente</li>
+    <li>Funzionamento del modulo di prenotazione (GoHighLevel)</li>
+    <li>Preferenze del banner cookie</li>
+  </ul>
+
+  <p><strong style="color:var(--white)">2.2 Cookie analitici (con consenso)</strong></p>
+  <p>Utilizzati per analizzare il traffico e il comportamento degli utenti in forma anonima o aggregata.</p>
+
+  <p><strong style="color:var(--white)">2.3 Cookie di terze parti e strumenti esterni (con consenso)</strong></p>
+  <ul>
+    <li><strong>Meta Pixel (Facebook/Instagram):</strong> utilizzato per misurare l'efficacia delle campagne pubblicitarie e mostrare annunci personalizzati. Informativa Meta: <a href="https://facebook.com/policy/cookies" target="_blank">facebook.com/policy/cookies</a></li>
+    <li><strong>Widget di prenotazione GoHighLevel:</strong> necessario per la gestione degli appuntamenti online tramite il calendario integrato.</li>
+    <li><strong>Agente vocale ElevenLabs:</strong> chatbot vocale integrato nel sito per assistenza agli utenti. Potrebbe raccogliere dati relativi all'interazione vocale. Informativa ElevenLabs: <a href="https://elevenlabs.io/privacy" target="_blank">elevenlabs.io/privacy</a></li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <h2><span class="sec-num">3</span> Gestione del Consenso</h2>
+  <p>Al primo accesso al sito viene mostrato un banner che consente di:</p>
+  <ul>
+    <li>Accettare tutti i cookie</li>
+    <li>Accettare solo i cookie essenziali</li>
+  </ul>
+  <p>L'utente può modificare le proprie preferenze in qualsiasi momento contattando: <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a></p>
+
+  <hr class="divider"/>
+
+  <h2><span class="sec-num">4</span> Durata dei Cookie</h2>
+  <ul>
+    <li><strong>Cookie tecnici:</strong> durata della sessione o fino a 12 mesi.</li>
+    <li><strong>Cookie analitici:</strong> fino a 26 mesi.</li>
+    <li><strong>Cookie Meta Pixel:</strong> fino a 180 giorni.</li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <h2><span class="sec-num">5</span> Diritti dell'Utente</h2>
+  <p>L'utente ha diritto di accesso, rettifica, cancellazione e opposizione al trattamento dei propri dati. Per esercitare tali diritti: <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a></p>
+  <p>Per maggiori informazioni sul trattamento dei dati personali, consulta la nostra <a href="privacy.html">Informativa sulla Privacy</a>.</p>
+
+  <hr class="divider"/>
+
+  <h2><span class="sec-num">6</span> Modifiche alla Politica sui Cookie</h2>
+  <p>Fabbiola Piccari / piccarionex.online si riserva il diritto di aggiornare la presente Politica per adeguarla a modifiche normative o tecniche. Le modifiche saranno pubblicate su questa pagina con la nuova data di aggiornamento.</p>
+
+  <div class="doc-footer-links">
+    <a href="privacy.html">→ Informativa sulla Privacy</a>
+    <a href="termini.html">→ Termini e Condizioni</a>
+    <a href="index.html">→ Torna al sito</a>
+  </div>
+</main>
+<footer>
+  <p>© 2026 Piccarionex · Fabbiola Piccari · Pescara, Italia &nbsp;·&nbsp; <a href="index.html">Torna al sito</a></p>
+</footer>
+</body>
+</html>
