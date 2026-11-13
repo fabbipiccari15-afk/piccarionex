@@ -87,15 +87,11 @@
     .chi-sono-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .chi-sono-visual{position:relative}
     .chi-sono-img-wrap{width:100%;aspect-ratio:3/4;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,rgba(123,47,190,0.15),rgba(224,64,251,0.08));border:1px solid rgba(192,132,252,0.2);display:flex;align-items:center;justify-content:center}
-    .chi-sono-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
-    .chi-sono-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px}
-    .chi-sono-img-placeholder .placeholder-icon{font-size:4rem;opacity:.4}
-    .chi-sono-img-placeholder p{color:var(--gray);font-size:.85rem;text-align:center}
+    .chi-sono-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 8%}
     .chi-sono-glow{position:absolute;top:-30px;left:-30px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.3),transparent 70%);pointer-events:none}
     .chi-sono-badge{position:absolute;bottom:30px;right:-20px;background:rgba(14,14,28,0.95);border:1px solid rgba(192,132,252,0.3);border-radius:16px;padding:16px 20px;backdrop-filter:blur(10px)}
     .chi-sono-badge .badge-role{color:var(--violet-glow);font-size:.78rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
     .chi-sono-badge .badge-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-top:4px}
-    .chi-sono-content{}
     .chi-sono-quote{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;line-height:1.5;color:var(--white);margin-bottom:28px;padding-left:24px;border-left:3px solid var(--violet-glow)}
     .chi-sono-bio{color:var(--gray-light);font-size:.97rem;line-height:1.75;margin-bottom:32px}
     .chi-sono-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
@@ -130,21 +126,41 @@
     .niche-icon{font-size:2.4rem;min-width:56px;text-align:center}
     .niche-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:10px}
     .niche-card p{color:var(--gray);font-size:.9rem;line-height:1.65}
-    .demo{background:var(--dark2)}
-    .demo-box{max-width:900px;margin:0 auto;text-align:center}
+    .demo{background:var(--dark2);position:relative;overflow:hidden}
+    .demo-box{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:2}
     .demo-box h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;margin-bottom:16px}
-    .demo-box p{color:var(--gray-light);font-size:1rem;line-height:1.7;margin-bottom:40px}
-    .demo-placeholder{background:var(--card-bg);border:1px solid var(--card-border);border-radius:24px;padding:60px 40px;display:flex;flex-direction:column;align-items:center;gap:20px}
-    .demo-placeholder .demo-icon{font-size:3rem}
-    .demo-placeholder p{color:var(--gray);font-size:.95rem}
+    .demo-box>p{color:var(--gray-light);font-size:1rem;line-height:1.7;margin-bottom:40px}
+    .demo-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+    .demo-orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(123,47,190,0.22),transparent 70%);top:-150px;left:50%;transform:translateX(-50%);animation:orb1-float 9s ease-in-out infinite}
+    .demo-orb-2{width:350px;height:350px;background:radial-gradient(circle,rgba(224,64,251,0.13),transparent 70%);bottom:-100px;right:5%;animation:orb2-float 11s ease-in-out infinite}
+    @keyframes orb1-float{0%,100%{top:-150px}50%{top:-80px}}
+    @keyframes orb2-float{0%,100%{bottom:-100px}50%{bottom:-40px}}
+    .demo-benefits{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+    .demo-benefit{display:flex;align-items:center;gap:9px;background:rgba(123,47,190,0.1);border:1px solid rgba(192,132,252,0.22);border-radius:50px;padding:11px 22px;font-size:.9rem;color:var(--gray-light);opacity:0;animation:benefit-in .7s ease forwards}
+    .demo-benefit:nth-child(1){animation-delay:.15s}
+    .demo-benefit:nth-child(2){animation-delay:.3s}
+    .demo-benefit:nth-child(3){animation-delay:.45s}
+    @keyframes benefit-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .demo-benefit-icon{font-size:.95rem}
+    .demo-cta-wrap{position:relative;display:inline-block;margin-bottom:28px}
+    .demo-pulse-ring{position:absolute;inset:-14px;border-radius:50px;border:2px solid rgba(192,132,252,0.45);animation:pulse-ring 2.6s ease-out infinite;pointer-events:none}
+    .demo-pulse-ring-2{animation-delay:1.3s;inset:-24px;border-color:rgba(192,132,252,0.2)}
+    @keyframes pulse-ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.14);opacity:0}}
+    .btn-shimmer{position:relative;overflow:hidden}
+    .btn-shimmer::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);animation:shimmer 3.5s ease-in-out infinite;animation-delay:1.5s}
+    @keyframes shimmer{0%{left:-100%}100%{left:220%}}
+    .demo-social-proof{color:var(--gray);font-size:.9rem;margin-bottom:0}
+    .demo-social-proof strong{color:var(--violet-glow);font-weight:600}
+    .demo-privacy{font-size:.8rem;color:var(--gray);margin-top:22px;line-height:1.65;max-width:500px;margin-left:auto;margin-right:auto}
+    .demo-privacy a{color:var(--violet-glow);text-decoration:underline}
     .cta-section{background:var(--dark);text-align:center}
-    .cta-box{max-width:960px;margin:0 auto;background:linear-gradient(135deg,rgba(123,47,190,0.18),rgba(224,64,251,0.08));border:1px solid rgba(192,132,252,0.25);border-radius:32px;padding:70px 50px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;text-align:left}
-    .cta-box::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.25),transparent 70%)}
+    .cta-box{max-width:960px;margin:0 auto;background:linear-gradient(135deg,rgba(123,47,190,0.18),rgba(224,64,251,0.08));border:1px solid rgba(192,132,252,0.25);border-radius:32px;padding:70px 50px;position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;text-align:left}
+    .cta-box::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.25),transparent 70%);pointer-events:none}
     .cta-box h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;margin-bottom:18px;position:relative;z-index:1}
     .cta-box p{color:var(--gray-light);font-size:1rem;line-height:1.7;margin-bottom:36px;position:relative;z-index:1}
     .cta-buttons{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
-    .cta-img{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(123,47,190,0.3);position:relative;z-index:1}
-    .cta-img img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+    .cta-img{border-radius:20px;overflow:visible;box-shadow:0 20px 60px rgba(123,47,190,0.3);position:relative;z-index:1;align-self:start}
+    .cta-img img{width:100%;height:auto;display:block;object-fit:contain;border-radius:20px}
     .btn-whatsapp{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:15px 32px;border-radius:50px;font-weight:600;font-size:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(37,211,102,0.35)}
     .btn-whatsapp:hover{transform:translateY(-2px)}
     footer{background:var(--dark2);border-top:1px solid rgba(192,132,252,0.1);padding:44px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
@@ -199,21 +215,15 @@
 </nav>
 <section class="hero" id="home">
   <div class="hero-slider">
-    <div class="hero-slide active">
-      <div class="slide-bg" style="background-image:url('hero-roma.png')"></div>
-    </div>
-    <div class="hero-slide">
-      <div class="slide-bg" style="background-image:url('hero-milan.png')"></div>
-    </div>
-    <div class="hero-slide">
-      <div class="slide-bg" style="background-image:url('hero-mask.png')"></div>
-    </div>
+    <div class="hero-slide active"><div class="slide-bg" style="background-image:url('hero-roma.png')"></div></div>
+    <div class="hero-slide"><div class="slide-bg" style="background-image:url('hero-milan.png')"></div></div>
+    <div class="hero-slide"><div class="slide-bg" style="background-image:url('hero-mask.png')"></div></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">🤖 AI Automation per Business</div>
-    <h1>Più Appuntamenti.<br/><span class="gradient-text">Zero Lavoro Manuale.</span></h1>
-    <p class="hero-desc">Automatizziamo il tuo sistema di acquisizione clienti con AI, workflow intelligenti e agenti vocali — così tu chiudi vendite, non insegui lead.</p>
+    <h1>Piu Appuntamenti.<br/><span class="gradient-text">Zero Lavoro Manuale.</span></h1>
+    <p class="hero-desc">Automatizziamo il tuo sistema di acquisizione clienti con AI, workflow intelligenti e agenti vocali.</p>
     <div class="hero-buttons">
       <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo Gratuita</a>
       <a href="#servizi" class="btn-secondary">Scopri i Servizi ↓</a>
@@ -228,7 +238,7 @@
 <div class="stats">
   <div class="stats-grid">
     <div><span class="stat-num">24/7</span><div class="stat-label">Automazione attiva senza fermarsi mai</div></div>
-    <div><span class="stat-num">−70%</span><div class="stat-label">Riduzione costo acquisizione lead</div></div>
+    <div><span class="stat-num">-70%</span><div class="stat-label">Riduzione costo acquisizione lead</div></div>
     <div><span class="stat-num">+40%</span><div class="stat-label">Aumento tasso di conversione</div></div>
     <div><span class="stat-num">48h</span><div class="stat-label">Implementazione sistema completo</div></div>
   </div>
@@ -236,7 +246,7 @@
 <section class="services" id="servizi">
   <div class="section-header centered">
     <span class="section-tag">I Nostri Servizi</span>
-    <h2 class="section-title">Tutto ciò che serve per<br/><span class="gradient-text">scalare il tuo business</span></h2>
+    <h2 class="section-title">Tutto cio che serve per<br/><span class="gradient-text">scalare il tuo business</span></h2>
     <p class="section-sub">Sistemi AI chiavi in mano. Dal primo contatto alla chiusura del contratto.</p>
   </div>
   <div class="services-grid">
@@ -260,7 +270,7 @@
         <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Cattura il Lead</h4><p>Il sistema cattura e registra automaticamente ogni prospect nel CRM.</p></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Qualificazione AI</h4><p>Ester lo contatta entro 5 minuti e fissa la demo nel tuo calendario.</p></div></div>
         <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Nurturing Automatico</h4><p>Sequenze personalizzate via email e WhatsApp mantengono il lead caldo.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Tu Chiudi la Vendita</h4><p>Arrivi alla call con un prospect qualificato. Il tuo unico lavoro è chiudere.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Tu Chiudi la Vendita</h4><p>Arrivi alla call con un prospect qualificato. Il tuo unico lavoro e chiudere.</p></div></div>
       </div>
     </div>
     <div>
@@ -285,9 +295,7 @@
   <div class="chi-sono-layout">
     <div class="chi-sono-visual">
       <div class="chi-sono-glow"></div>
-      <div class="chi-sono-img-wrap">
-        <img src="chi-sono.png" alt="Fabbiola Piccari" />
-      </div>
+      <div class="chi-sono-img-wrap"><img src="chi-sono.png" alt="Fabbiola Piccari" /></div>
       <div class="chi-sono-badge">
         <div class="badge-role">Direttrice Agenti AI</div>
         <div class="badge-name">Fabbiola Piccari</div>
@@ -295,8 +303,8 @@
     </div>
     <div class="chi-sono-content">
       <span class="section-tag">Chi Sono</span>
-      <h2 class="section-title">"Velocità, competenza<br/>e <span class="gradient-text">risultati concreti</span> —<br/>in una sola persona."</h2>
-      <p class="chi-sono-bio">Sono Fabbiola Piccari, Economista e specialista in AI Automation. Progetto e implemento sistemi di acquisizione clienti ad alto rendimento che combinano agenti AI, workflow automatizzati e strategie di marketing digitale per generare più prospect qualificati, ridurre i costi e aumentare le conversioni — in qualsiasi settore e lingua.</p>
+      <h2 class="section-title">"Velocita, competenza<br/>e <span class="gradient-text">risultati concreti</span> —<br/>in una sola persona."</h2>
+      <p class="chi-sono-bio">Sono Fabbiola Piccari, Economista e specialista in AI Automation. Progetto e implemento sistemi di acquisizione clienti ad alto rendimento che combinano agenti AI, workflow automatizzati e strategie di marketing digitale per generare piu prospect qualificati, ridurre i costi e aumentare le conversioni.</p>
       <div class="chi-sono-tags">
         <span class="chi-tag">🎓 Economista</span>
         <span class="chi-tag">🤖 AI Automation</span>
@@ -343,54 +351,26 @@
     </div>
     <div class="vtab-content active" id="vtab-0">
       <div class="vtab-layout">
-        <div class="vtab-video">
-          <iframe src="https://www.youtube.com/embed/cnCiXB5aJy4" title="Clinica Dentale AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="vtab-text">
-          <span class="section-tag">Cliniche Dentali</span>
-          <h3>Agenda sempre piena.<br/>No-show azzerati.</h3>
-          <p>Il tuo Agente AI risponde a ogni richiesta, fissa appuntamenti e invia promemoria automatici 24/7. Riduci le cancellazioni e aumenta il fatturato senza assumere personale.</p>
-          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a>
-        </div>
+        <div class="vtab-video"><iframe src="https://www.youtube.com/embed/cnCiXB5aJy4" title="Clinica Dentale AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vtab-text"><span class="section-tag">Cliniche Dentali</span><h3>Agenda sempre piena.<br/>No-show azzerati.</h3><p>Il tuo Agente AI risponde a ogni richiesta, fissa appuntamenti e invia promemoria automatici 24/7.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
       </div>
     </div>
     <div class="vtab-content" id="vtab-1">
       <div class="vtab-layout">
-        <div class="vtab-video">
-          <iframe src="https://www.youtube.com/embed/xy2GTJ4iU68" title="Assistente Clienti AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="vtab-text">
-          <span class="section-tag">Assistente Clienti</span>
-          <h3>Il tuo assistente AI.<br/>Sempre in ascolto.</h3>
-          <p>Il tuo Agente IA risponde alle domande dei clienti, prenota appuntamenti, invia conferme automatiche e gestisce richieste di qualsiasi tipo — su WhatsApp, telefono e webchat.</p>
-          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a>
-        </div>
+        <div class="vtab-video"><iframe src="https://www.youtube.com/embed/xy2GTJ4iU68" title="Assistente Clienti AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vtab-text"><span class="section-tag">Assistente Clienti</span><h3>Il tuo assistente AI.<br/>Sempre in ascolto.</h3><p>Il tuo Agente IA risponde alle domande dei clienti, prenota appuntamenti e gestisce richieste su WhatsApp, telefono e webchat.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
       </div>
     </div>
     <div class="vtab-content" id="vtab-2">
       <div class="vtab-layout">
-        <div class="vtab-video">
-          <iframe src="https://www.youtube.com/embed/3X9rwqF11d4" title="Immobiliare AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="vtab-text">
-          <span class="section-tag">Immobiliare</span>
-          <h3>Nessuna opportunità<br/>persa per una risposta in ritardo.</h3>
-          <p>I nostri Agenti IA gestiscono le richieste sugli immobili 24/7, filtrano acquirenti e affittuari seri e fissano visite sul tuo calendario anche mentre dormi.</p>
-          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a>
-        </div>
+        <div class="vtab-video"><iframe src="https://www.youtube.com/embed/3X9rwqF11d4" title="Immobiliare AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vtab-text"><span class="section-tag">Immobiliare</span><h3>Nessuna opportunita<br/>persa per una risposta in ritardo.</h3><p>I nostri Agenti IA gestiscono le richieste sugli immobili 24/7, filtrano acquirenti seri e fissano visite sul tuo calendario.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
       </div>
     </div>
     <div class="vtab-content" id="vtab-3">
       <div class="vtab-layout">
-        <div class="vtab-video">
-          <iframe src="https://www.youtube.com/embed/ptdF4mv3DIE" title="Ristorazione AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="vtab-text">
-          <span class="section-tag">Ristorazione & Food</span>
-          <h3>Un sito che converte<br/>come un maître di lusso.</h3>
-          <p>Pagina web con AI integrata, booking automatico e esperienza cliente premium per ristoranti e locali di alto livello. Costruito con Claude AI + Vercel.</p>
-          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a>
-        </div>
+        <div class="vtab-video"><iframe src="https://www.youtube.com/embed/ptdF4mv3DIE" title="Ristorazione AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vtab-text"><span class="section-tag">Ristorazione &amp; Food</span><h3>Un sito che converte<br/>come un maitre di lusso.</h3><p>Pagina web con AI integrata, booking automatico e esperienza cliente premium per ristoranti e locali di alto livello.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
       </div>
     </div>
   </div>
@@ -409,30 +389,37 @@
   </div>
 </section>
 <section class="demo" id="demo">
+  <div class="demo-orb demo-orb-1"></div>
+  <div class="demo-orb demo-orb-2"></div>
   <div class="demo-box">
     <span class="section-tag" style="display:block;margin-bottom:14px;">Prenota la tua Demo</span>
     <h2>Non crederci.<br/><span class="gradient-text">Verificalo dal vivo.</span></h2>
-    <p>Demo gratuita di 30 minuti via Google Meet. Ti mostro come il sistema funzionerà per il tuo settore specifico.</p>
-    <div class="demo-placeholder">
-      <div class="demo-icon">📅</div>
-      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" style="font-size:1.1rem;padding:18px 48px;">Scegli il tuo orario →</a>
-      <p style="font-size:.82rem;color:var(--gray);margin-top:4px;max-width:500px;line-height:1.6;">Prenotando accetti la nostra <a href="privacy.html" style="color:var(--violet-glow);text-decoration:underline;">Informativa sulla Privacy</a>. I tuoi dati saranno trattati da Piccarionex esclusivamente per gestire la richiesta di demo.</p>
+    <p>Demo gratuita di 30 minuti via Google Meet. Ti mostro come il sistema funzionera per il tuo settore specifico.</p>
+    <div class="demo-benefits">
+      <div class="demo-benefit"><span class="demo-benefit-icon">📅</span> 30 minuti</div>
+      <div class="demo-benefit"><span class="demo-benefit-icon">🎥</span> Google Meet</div>
+      <div class="demo-benefit"><span class="demo-benefit-icon">✓</span> Gratuita &amp; senza obbligo</div>
     </div>
+    <div class="demo-cta-wrap">
+      <div class="demo-pulse-ring"></div>
+      <div class="demo-pulse-ring demo-pulse-ring-2"></div>
+      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary btn-shimmer" style="font-size:1.1rem;padding:18px 48px;">Scegli il tuo orario →</a>
+    </div>
+    <p class="demo-social-proof">Oltre <strong>50 business</strong> hanno gia automatizzato con Piccarionex</p>
+    <p class="demo-privacy">Prenotando accetti la nostra <a href="privacy.html">Informativa sulla Privacy</a>. I tuoi dati saranno trattati da Piccarionex esclusivamente per gestire la richiesta di demo.</p>
   </div>
 </section>
 <section class="cta-section" id="contatti">
   <div class="cta-box">
     <div>
       <h2>Pronto a far lavorare un<br/><span class="gradient-text">sistema 24/7</span> per il tuo business?</h2>
-      <p>Demo gratuita di 30 minuti. Ti mostro come il sistema funzionerà per il tuo settore.</p>
+      <p>Demo gratuita di 30 minuti. Ti mostro come il sistema funzionera per il tuo settore.</p>
       <div class="cta-buttons">
         <a href="https://wa.me/393297341638" class="btn-whatsapp">💬 WhatsApp</a>
         <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a>
       </div>
     </div>
-    <div class="cta-img">
-      <img src="contattaci.png" alt="Contattaci Piccarionex" />
-    </div>
+    <div class="cta-img"><img src="contattaci.png" alt="Contattaci Piccarionex" /></div>
   </div>
 </section>
 <footer>
@@ -445,7 +432,7 @@
     <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
     <a href="https://wa.me/393297341638">+39 329 734 1638</a>
     <a href="https://www.instagram.com/fabbiolapiccari.digitalmkt" target="_blank">@fabbiolapiccari.digitalmkt</a>
-    <a href="privacy.html">Privacy & Cookie</a>
+    <a href="privacy.html">Privacy &amp; Cookie</a>
   </div>
 </footer>
 <div id="cookie-banner">
@@ -458,8 +445,7 @@
 <script>
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-dot');
-  let current = 0;
-  let timer;
+  let current = 0, timer;
   function goToSlide(n) {
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
@@ -468,37 +454,21 @@
     slides[current].classList.add('active');
     dots[current].classList.add('active');
     const bg = slides[current].querySelector('.slide-bg');
-    bg.style.animation = 'none';
-    bg.offsetHeight;
-    bg.style.animation = '';
-    clearInterval(timer);
-    timer = setInterval(nextSlide, 6000);
+    bg.style.animation = 'none'; bg.offsetHeight; bg.style.animation = '';
+    clearInterval(timer); timer = setInterval(nextSlide, 6000);
   }
-  function nextSlide() {
-    goToSlide((current + 1) % slides.length);
-  }
+  function nextSlide() { goToSlide((current + 1) % slides.length); }
   function switchTab(n) {
-    document.querySelectorAll('.vtab').forEach((t, i) => t.classList.toggle('active', i === n));
-    document.querySelectorAll('.vtab-content').forEach((c, i) => c.classList.toggle('active', i === n));
+    document.querySelectorAll('.vtab').forEach((t,i) => t.classList.toggle('active', i===n));
+    document.querySelectorAll('.vtab-content').forEach((c,i) => c.classList.toggle('active', i===n));
   }
   timer = setInterval(nextSlide, 6000);
   function showCookieBanner() {
-    try {
-      if (!localStorage.getItem('cookie_consent')) {
-        document.getElementById('cookie-banner').style.display = 'flex';
-      }
-    } catch(e) {
-      document.getElementById('cookie-banner').style.display = 'flex';
-    }
+    try { if (!localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').style.display = 'flex'; }
+    catch(e) { document.getElementById('cookie-banner').style.display = 'flex'; }
   }
-  function acceptCookies() {
-    try { localStorage.setItem('cookie_consent', 'accepted'); } catch(e) {}
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
-  function rejectCookies() {
-    try { localStorage.setItem('cookie_consent', 'rejected'); } catch(e) {}
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
+  function acceptCookies() { try { localStorage.setItem('cookie_consent','accepted'); } catch(e){} document.getElementById('cookie-banner').style.display='none'; }
+  function rejectCookies() { try { localStorage.setItem('cookie_consent','rejected'); } catch(e){} document.getElementById('cookie-banner').style.display='none'; }
   window.addEventListener('load', showCookieBanner);
 </script>
 </body>
