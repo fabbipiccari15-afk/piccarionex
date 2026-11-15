@@ -1,12 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piccarionex · Automazione AI per il tuo Business</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- SEO -->
+  <meta name="description" content="Piccarionex — Automazione AI per business: agenti vocali, chatbot WhatsApp, prenotazioni automatiche e CRM intelligente. Specializzata in cliniche dentali, immobiliare, ristoranti e PA." />
+  <link rel="canonical" href="https://piccarionex.online" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://piccarionex.online" />
+  <meta property="og:title" content="Piccarionex · Automazione AI per il tuo Business" />
+  <meta property="og:description" content="Agenti IA vocali e chatbot per cliniche, immobiliare, ristoranti e PA. Automatizza appuntamenti, lead e follow-up con intelligenza artificiale." />
+  <meta property="og:image" content="https://piccarionex.online/hero-milan.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Piccarionex · Automazione AI per il tuo Business" />
+  <meta name="twitter:description" content="Agenti IA vocali e chatbot per cliniche, immobiliare, ristoranti e PA." />
+  <meta name="twitter:image" content="https://piccarionex.online/hero-milan.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --violet:#7B2FBE; --violet-light:#9B59D0; --violet-deep:#5A1A9A;
@@ -24,6 +36,10 @@
     .nav-links a{color:var(--gray-light);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
     .nav-links a:hover{color:var(--violet-glow)}
     .nav-cta{background:linear-gradient(135deg,var(--violet),var(--accent));color:var(--white)!important;padding:10px 22px;border-radius:50px;font-weight:600!important;font-size:.88rem!important}
+    .lang-switcher{display:flex;align-items:center;gap:5px}
+    .lang-btn{background:transparent;border:none;color:var(--gray);font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;padding:4px 2px;letter-spacing:.8px;transition:color .2s}
+    .lang-btn:hover,.lang-btn.active{color:var(--violet-glow)}
+    .lang-sep{color:rgba(144,144,168,0.35);font-size:.75rem}
     .hero{min-height:100vh;display:flex;align-items:center;padding:140px 6% 100px;position:relative;overflow:hidden}
     .hero-slider{position:absolute;inset:0;z-index:0}
     .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out}
@@ -206,13 +222,21 @@
 <nav>
   <span class="nav-logo">Fabbiola Piccari</span>
   <ul class="nav-links">
-    <li><a href="#servizi">Servizi</a></li>
-    <li><a href="#come-funziona">Come Funziona</a></li>
-    <li><a href="#chi-sono">Chi Sono</a></li>
-    <li><a href="#nicchie">Nicchie</a></li>
-    <li><a href="https://calendly.com/piccarionex/30min" target="_blank" class="nav-cta">Prenota Demo</a></li>
+    <li><a href="#servizi" data-i18n="nav_servizi">Servizi</a></li>
+    <li><a href="#come-funziona" data-i18n="nav_come_funziona">Come Funziona</a></li>
+    <li><a href="#chi-sono" data-i18n="nav_chi_sono">Chi Sono</a></li>
+    <li><a href="#nicchie" data-i18n="nav_nicchie">Nicchie</a></li>
+    <li><a href="https://calendly.com/piccarionex/30min" target="_blank" class="nav-cta" data-i18n="nav_cta">Prenota Demo</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+  </div>
 </nav>
+
 <section class="hero" id="home">
   <div class="hero-slider">
     <div class="hero-slide active"><div class="slide-bg" style="background-image:url('hero-roma.png')"></div></div>
@@ -221,12 +245,12 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">🤖 AI Automation per Business</div>
-    <h1>Piu Appuntamenti.<br/><span class="gradient-text">Zero Lavoro Manuale.</span></h1>
-    <p class="hero-desc">Automatizziamo il tuo sistema di acquisizione clienti con AI, workflow intelligenti e agenti vocali.</p>
+    <div class="hero-badge" data-i18n="hero_badge">🤖 AI Automation per Business</div>
+    <h1 data-i18n-html="hero_h1">Piu Appuntamenti.<br><span class="gradient-text">Zero Lavoro Manuale.</span></h1>
+    <p class="hero-desc" data-i18n="hero_desc">Automatizziamo il tuo sistema di acquisizione clienti con AI, workflow intelligenti e agenti vocali.</p>
     <div class="hero-buttons">
-      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo Gratuita</a>
-      <a href="#servizi" class="btn-secondary">Scopri i Servizi ↓</a>
+      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="hero_btn1">Prenota Demo Gratuita</a>
+      <a href="#servizi" class="btn-secondary" data-i18n="hero_btn2">Scopri i Servizi ↓</a>
     </div>
   </div>
   <div class="hero-dots">
@@ -235,42 +259,45 @@
     <div class="hero-dot" onclick="goToSlide(2)"></div>
   </div>
 </section>
+
 <div class="stats">
   <div class="stats-grid">
-    <div><span class="stat-num">24/7</span><div class="stat-label">Automazione attiva senza fermarsi mai</div></div>
-    <div><span class="stat-num">-70%</span><div class="stat-label">Riduzione costo acquisizione lead</div></div>
-    <div><span class="stat-num">+40%</span><div class="stat-label">Aumento tasso di conversione</div></div>
-    <div><span class="stat-num">48h</span><div class="stat-label">Implementazione sistema completo</div></div>
+    <div><span class="stat-num">24/7</span><div class="stat-label" data-i18n="stat1">Automazione attiva senza fermarsi mai</div></div>
+    <div><span class="stat-num">-70%</span><div class="stat-label" data-i18n="stat2">Riduzione costo acquisizione lead</div></div>
+    <div><span class="stat-num">+40%</span><div class="stat-label" data-i18n="stat3">Aumento tasso di conversione</div></div>
+    <div><span class="stat-num">48h</span><div class="stat-label" data-i18n="stat4">Implementazione sistema completo</div></div>
   </div>
 </div>
+
 <section class="services" id="servizi">
   <div class="section-header centered">
-    <span class="section-tag">I Nostri Servizi</span>
-    <h2 class="section-title">Tutto cio che serve per<br/><span class="gradient-text">scalare il tuo business</span></h2>
-    <p class="section-sub">Sistemi AI chiavi in mano. Dal primo contatto alla chiusura del contratto.</p>
+    <span class="section-tag" data-i18n="services_tag">I Nostri Servizi</span>
+    <h2 class="section-title" data-i18n-html="services_title">Tutto cio che serve per<br><span class="gradient-text">scalare il tuo business</span></h2>
+    <p class="section-sub" data-i18n="services_sub">Sistemi AI chiavi in mano. Dal primo contatto alla chiusura del contratto.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card"><div class="service-icon">⚡</div><h3>Automazione Lead</h3><p>Cattura, qualifica e nutre automaticamente i lead con workflow AI su misura.</p></div>
-    <div class="service-card"><div class="service-icon">🤖</div><h3>Agente Vocale AI</h3><p>Ester risponde, fissa appuntamenti e segue i prospect 24 ore su 24, 7 giorni su 7.</p></div>
-    <div class="service-card"><div class="service-icon">📅</div><h3>Booking Automatico</h3><p>Sistema di prenotazione che azzera le no-show con promemoria automatici.</p></div>
-    <div class="service-card"><div class="service-icon">📊</div><h3>CRM Intelligente</h3><p>Pipeline di vendita automatizzata con scoring dei lead e reportistica in tempo reale.</p></div>
-    <div class="service-card"><div class="service-icon">🎯</div><h3>Funnel di Acquisizione</h3><p>Landing page ad alta conversione, campagne Meta/Google ottimizzate e tracciamento ROI.</p></div>
-    <div class="service-card"><div class="service-icon">🔗</div><h3>Integrazioni API</h3><p>Connetti CRM, calendario, WhatsApp, email in un unico sistema fluido e automatizzato.</p></div>
+    <div class="service-card"><div class="service-icon">⚡</div><h3 data-i18n="svc1_title">Automazione Lead</h3><p data-i18n="svc1_desc">Cattura, qualifica e nutre automaticamente i lead con workflow AI su misura.</p></div>
+    <div class="service-card"><div class="service-icon">🤖</div><h3 data-i18n="svc2_title">Agente Vocale AI</h3><p data-i18n="svc2_desc">Ester risponde, fissa appuntamenti e segue i prospect 24 ore su 24, 7 giorni su 7.</p></div>
+    <div class="service-card"><div class="service-icon">📅</div><h3 data-i18n="svc3_title">Booking Automatico</h3><p data-i18n="svc3_desc">Sistema di prenotazione che azzera le no-show con promemoria automatici.</p></div>
+    <div class="service-card"><div class="service-icon">📊</div><h3 data-i18n="svc4_title">CRM Intelligente</h3><p data-i18n="svc4_desc">Pipeline di vendita automatizzata con scoring dei lead e reportistica in tempo reale.</p></div>
+    <div class="service-card"><div class="service-icon">🎯</div><h3 data-i18n="svc5_title">Funnel di Acquisizione</h3><p data-i18n="svc5_desc">Landing page ad alta conversione, campagne Meta/Google ottimizzate e tracciamento ROI.</p></div>
+    <div class="service-card"><div class="service-icon">🔗</div><h3 data-i18n="svc6_title">Integrazioni API</h3><p data-i18n="svc6_desc">Connetti CRM, calendario, WhatsApp, email in un unico sistema fluido e automatizzato.</p></div>
   </div>
 </section>
+
 <section class="how" id="come-funziona">
   <div class="how-layout">
     <div>
       <div class="section-header">
-        <span class="section-tag">Come Funziona</span>
-        <h2 class="section-title">Da lead a cliente in<br/><span class="gradient-text">4 passaggi automatici</span></h2>
-        <p class="section-sub">Il tuo sistema lavora anche mentre dormi.</p>
+        <span class="section-tag" data-i18n="how_tag">Come Funziona</span>
+        <h2 class="section-title" data-i18n-html="how_title">Da lead a cliente in<br><span class="gradient-text">4 passaggi automatici</span></h2>
+        <p class="section-sub" data-i18n="how_sub">Il tuo sistema lavora anche mentre dormi.</p>
       </div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Cattura il Lead</h4><p>Il sistema cattura e registra automaticamente ogni prospect nel CRM.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Qualificazione AI</h4><p>Ester lo contatta entro 5 minuti e fissa la demo nel tuo calendario.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Nurturing Automatico</h4><p>Sequenze personalizzate via email e WhatsApp mantengono il lead caldo.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Tu Chiudi la Vendita</h4><p>Arrivi alla call con un prospect qualificato. Il tuo unico lavoro e chiudere.</p></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4 data-i18n="step1_title">Cattura il Lead</h4><p data-i18n="step1_desc">Il sistema cattura e registra automaticamente ogni prospect nel CRM.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4 data-i18n="step2_title">Qualificazione AI</h4><p data-i18n="step2_desc">Ester lo contatta entro 5 minuti e fissa la demo nel tuo calendario.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4 data-i18n="step3_title">Nurturing Automatico</h4><p data-i18n="step3_desc">Sequenze personalizzate via email e WhatsApp mantengono il lead caldo.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4 data-i18n="step4_title">Tu Chiudi la Vendita</h4><p data-i18n="step4_desc">Arrivi alla call con un prospect qualificato. Il tuo unico lavoro e chiudere.</p></div></div>
       </div>
     </div>
     <div>
@@ -278,33 +305,34 @@
         <div class="ester-avatar">🤖</div>
         <div class="ester-name">Ester</div>
         <div class="ester-role">Coordinatrice AI · Piccarionex</div>
-        <p class="ester-desc">Agente vocale AI sempre disponibile. Risponde, gestisce appuntamenti e qualifica i lead in italiano perfetto.</p>
+        <p class="ester-desc" data-i18n="ester_desc">Agente vocale AI sempre disponibile. Risponde, gestisce appuntamenti e qualifica i lead in italiano perfetto.</p>
         <div class="ester-features">
-          <div class="ester-feat">Risponde in meno di 5 minuti</div>
-          <div class="ester-feat">100 conversazioni simultanee</div>
-          <div class="ester-feat">Integrata con il tuo calendario</div>
-          <div class="ester-feat">Personalizzabile per settore</div>
-          <div class="ester-feat">Attiva 24/7, 365 giorni l'anno</div>
+          <div class="ester-feat" data-i18n="ester_feat1">Risponde in meno di 5 minuti</div>
+          <div class="ester-feat" data-i18n="ester_feat2">100 conversazioni simultanee</div>
+          <div class="ester-feat" data-i18n="ester_feat3">Integrata con il tuo calendario</div>
+          <div class="ester-feat" data-i18n="ester_feat4">Personalizzabile per settore</div>
+          <div class="ester-feat" data-i18n="ester_feat5">Attiva 24/7, 365 giorni l'anno</div>
         </div>
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin-top:12px;"><iframe src="https://www.youtube.com/embed/xy2GTJ4iU68" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="chi-sono" id="chi-sono">
   <div class="chi-sono-layout">
     <div class="chi-sono-visual">
       <div class="chi-sono-glow"></div>
-      <div class="chi-sono-img-wrap"><img src="chi-sono.png" alt="Fabbiola Piccari" /></div>
+      <div class="chi-sono-img-wrap"><img src="chi-sono.png" alt="Fabbiola Piccari"></div>
       <div class="chi-sono-badge">
-        <div class="badge-role">Direttrice Agenti AI</div>
+        <div class="badge-role" data-i18n="badge_role">Direttrice Agenti AI</div>
         <div class="badge-name">Fabbiola Piccari</div>
       </div>
     </div>
     <div class="chi-sono-content">
-      <span class="section-tag">Chi Sono</span>
-      <h2 class="section-title">"Velocita, competenza<br/>e <span class="gradient-text">risultati concreti</span> —<br/>in una sola persona."</h2>
-      <p class="chi-sono-bio">Sono Fabbiola Piccari, Economista e specialista in AI Automation. Progetto e implemento sistemi di acquisizione clienti ad alto rendimento che combinano agenti AI, workflow automatizzati e strategie di marketing digitale per generare piu prospect qualificati, ridurre i costi e aumentare le conversioni.</p>
+      <span class="section-tag" data-i18n="chi_tag">Chi Sono</span>
+      <h2 class="section-title" data-i18n-html="chi_title">"Velocita, competenza<br>e <span class="gradient-text">risultati concreti</span> —<br>in una sola persona."</h2>
+      <p class="chi-sono-bio" data-i18n="chi_bio">Sono Fabbiola Piccari, Economista e specialista in AI Automation. Progetto e implemento sistemi di acquisizione clienti ad alto rendimento che combinano agenti AI, workflow automatizzati e strategie di marketing digitale per generare piu prospect qualificati, ridurre i costi e aumentare le conversioni.</p>
       <div class="chi-sono-tags">
         <span class="chi-tag">🎓 Economista</span>
         <span class="chi-tag">🤖 AI Automation</span>
@@ -312,140 +340,534 @@
         <span class="chi-tag">🎯 High Ticket Closer</span>
         <span class="chi-tag">🌍 IT · ES · EN</span>
       </div>
-      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota la tua Demo →</a>
+      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="chi_cta">Prenota la tua Demo →</a>
     </div>
   </div>
 </section>
+
 <section class="mepa" id="mepa">
   <div class="mepa-box">
     <div>
-      <div class="mepa-badge">🏛️ Pubblica Amministrazione</div>
-      <h2 class="mepa-title">Servizi Approvati nel<br/><span class="gradient-text">Catalogo MEPA</span></h2>
-      <p style="color:var(--gray-light);font-size:.97rem;line-height:1.7;margin-bottom:24px;">Digitalizza i servizi al cittadino con Agenti IA su misura. Acquisto diretto tramite MEPA senza gara d'appalto.</p>
+      <div class="mepa-badge" data-i18n="mepa_badge">🏛️ Pubblica Amministrazione</div>
+      <h2 class="mepa-title" data-i18n-html="mepa_title">Servizi Approvati nel<br><span class="gradient-text">Catalogo MEPA</span></h2>
+      <p style="color:var(--gray-light);font-size:.97rem;line-height:1.7;margin-bottom:24px;" data-i18n="mepa_desc">Digitalizza i servizi al cittadino con Agenti IA su misura. Acquisto diretto tramite MEPA senza gara d'appalto.</p>
       <div class="mepa-list">
-        <div class="mepa-item">Acquisto diretto tramite MEPA</div>
-        <div class="mepa-item">Agente Vocale multilingue (IT, EN, ES, AR)</div>
-        <div class="mepa-item">Automazione richieste e appuntamenti</div>
-        <div class="mepa-item">Implementazione rapida senza stravolgere i sistemi esistenti</div>
-        <div class="mepa-item">Assistenza 24/7 senza aumentare il personale</div>
+        <div class="mepa-item" data-i18n="mepa_item1">Acquisto diretto tramite MEPA</div>
+        <div class="mepa-item" data-i18n="mepa_item2">Agente Vocale multilingue (IT, EN, ES, AR)</div>
+        <div class="mepa-item" data-i18n="mepa_item3">Automazione richieste e appuntamenti</div>
+        <div class="mepa-item" data-i18n="mepa_item4">Implementazione rapida senza stravolgere i sistemi esistenti</div>
+        <div class="mepa-item" data-i18n="mepa_item5">Assistenza 24/7 senza aumentare il personale</div>
       </div>
-      <a href="https://wa.me/393297341638" class="btn-primary">Richiedi Informazioni PA →</a>
+      <a href="https://wa.me/393297341638" class="btn-primary" data-i18n="mepa_cta">Richiedi Informazioni PA →</a>
     </div>
     <div class="mepa-video-wrap">
       <iframe src="https://www.youtube.com/embed/x40UhdVRMdU" title="MEPA Piccarionex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </section>
+
 <section class="video-nicchie" id="nicchie-video">
   <div class="section-header centered">
-    <span class="section-tag">Soluzione per ogni Settore</span>
-    <h2 class="section-title">AI su misura per<br/><span class="gradient-text">il tuo settore</span></h2>
-    <p class="section-sub">Guarda i nostri sistemi AI in azione. Clicca sul tuo settore.</p>
+    <span class="section-tag" data-i18n="video_tag">Soluzione per ogni Settore</span>
+    <h2 class="section-title" data-i18n-html="video_title">AI su misura per<br><span class="gradient-text">il tuo settore</span></h2>
+    <p class="section-sub" data-i18n="video_sub">Guarda i nostri sistemi AI in azione. Clicca sul tuo settore.</p>
   </div>
   <div class="video-tabs-wrap">
     <div class="video-tabs">
-      <button class="vtab active" onclick="switchTab(0)">🦷 Clinica Dentale</button>
-      <button class="vtab" onclick="switchTab(1)">💬 Assistente Clienti</button>
-      <button class="vtab" onclick="switchTab(2)">🏠 Immobiliare</button>
-      <button class="vtab" onclick="switchTab(3)">🍽️ Ristorazione</button>
+      <button class="vtab active" data-i18n="vtab0" onclick="switchTab(0)">🦷 Clinica Dentale</button>
+      <button class="vtab" data-i18n="vtab1" onclick="switchTab(1)">💬 Assistente Clienti</button>
+      <button class="vtab" data-i18n="vtab2" onclick="switchTab(2)">🏠 Immobiliare</button>
+      <button class="vtab" data-i18n="vtab3" onclick="switchTab(3)">🍽️ Ristorazione</button>
     </div>
     <div class="vtab-content active" id="vtab-0">
       <div class="vtab-layout">
         <div class="vtab-video"><iframe src="https://www.youtube.com/embed/cnCiXB5aJy4" title="Clinica Dentale AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="vtab-text"><span class="section-tag">Cliniche Dentali</span><h3>Agenda sempre piena.<br/>No-show azzerati.</h3><p>Il tuo Agente AI risponde a ogni richiesta, fissa appuntamenti e invia promemoria automatici 24/7.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
+        <div class="vtab-text">
+          <span class="section-tag" data-i18n="tab0_tag">Cliniche Dentali</span>
+          <h3 data-i18n-html="tab0_title">Agenda sempre piena.<br>No-show azzerati.</h3>
+          <p data-i18n="tab0_desc">Il tuo Agente AI risponde a ogni richiesta, fissa appuntamenti e invia promemoria automatici 24/7.</p>
+          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="tab0_cta">Prenota Demo →</a>
+        </div>
       </div>
     </div>
     <div class="vtab-content" id="vtab-1">
       <div class="vtab-layout">
         <div class="vtab-video"><iframe src="https://www.youtube.com/embed/xy2GTJ4iU68" title="Assistente Clienti AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="vtab-text"><span class="section-tag">Assistente Clienti</span><h3>Il tuo assistente AI.<br/>Sempre in ascolto.</h3><p>Il tuo Agente IA risponde alle domande dei clienti, prenota appuntamenti e gestisce richieste su WhatsApp, telefono e webchat.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
+        <div class="vtab-text">
+          <span class="section-tag" data-i18n="tab1_tag">Assistente Clienti</span>
+          <h3 data-i18n-html="tab1_title">Il tuo assistente AI.<br>Sempre in ascolto.</h3>
+          <p data-i18n="tab1_desc">Il tuo Agente IA risponde alle domande dei clienti, prenota appuntamenti e gestisce richieste su WhatsApp, telefono e webchat.</p>
+          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="tab1_cta">Prenota Demo →</a>
+        </div>
       </div>
     </div>
     <div class="vtab-content" id="vtab-2">
       <div class="vtab-layout">
         <div class="vtab-video"><iframe src="https://www.youtube.com/embed/3X9rwqF11d4" title="Immobiliare AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="vtab-text"><span class="section-tag">Immobiliare</span><h3>Nessuna opportunita<br/>persa per una risposta in ritardo.</h3><p>I nostri Agenti IA gestiscono le richieste sugli immobili 24/7, filtrano acquirenti seri e fissano visite sul tuo calendario.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
+        <div class="vtab-text">
+          <span class="section-tag" data-i18n="tab2_tag">Immobiliare</span>
+          <h3 data-i18n-html="tab2_title">Nessuna opportunita<br>persa per una risposta in ritardo.</h3>
+          <p data-i18n="tab2_desc">I nostri Agenti IA gestiscono le richieste sugli immobili 24/7, filtrano acquirenti seri e fissano visite sul tuo calendario.</p>
+          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="tab2_cta">Prenota Demo →</a>
+        </div>
       </div>
     </div>
     <div class="vtab-content" id="vtab-3">
       <div class="vtab-layout">
         <div class="vtab-video"><iframe src="https://www.youtube.com/embed/ptdF4mv3DIE" title="Ristorazione AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="vtab-text"><span class="section-tag">Ristorazione &amp; Food</span><h3>Un sito che converte<br/>come un maitre di lusso.</h3><p>Pagina web con AI integrata, booking automatico e esperienza cliente premium per ristoranti e locali di alto livello.</p><a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a></div>
+        <div class="vtab-text">
+          <span class="section-tag" data-i18n="tab3_tag">Ristorazione &amp; Food</span>
+          <h3 data-i18n-html="tab3_title">Un sito che converte<br>come un maitre di lusso.</h3>
+          <p data-i18n="tab3_desc">Pagina web con AI integrata, booking automatico e esperienza cliente premium per ristoranti e locali di alto livello.</p>
+          <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="tab3_cta">Prenota Demo →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="niches" id="nicchie">
   <div class="section-header centered">
-    <span class="section-tag">Settori</span>
-    <h2 class="section-title">Specializzati nel tuo settore</h2>
-    <p class="section-sub">Sistemi costruiti per ogni nicchia di mercato.</p>
+    <span class="section-tag" data-i18n="niches_tag">Settori</span>
+    <h2 class="section-title" data-i18n="niches_title">Specializzati nel tuo settore</h2>
+    <p class="section-sub" data-i18n="niches_sub">Sistemi costruiti per ogni nicchia di mercato.</p>
   </div>
   <div class="niches-grid">
-    <div class="niche-card"><div class="niche-icon">🦷</div><div><h3>Cliniche Dentali</h3><p>Riduci le no-show dell'80%, automatizza promemoria e follow-up. Studio sempre pieno.</p></div></div>
-    <div class="niche-card"><div class="niche-icon">✨</div><div><h3>Centro Estetico</h3><p>Fidelizza con riprenotazioni automatiche e referral che portano nuovi clienti ogni mese.</p></div></div>
-    <div class="niche-card"><div class="niche-icon">🏠</div><div><h3>Agenzie Immobiliari</h3><p>Qualifica acquirenti, fissa visite e mantieni il contatto con i venditori automaticamente.</p></div></div>
-    <div class="niche-card"><div class="niche-icon">🏛️</div><div><h3>Pubblica Amministrazione</h3><p>Servizi approvati MEPA. Digitalizza i comuni con agenti AI multilingue 24/7.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">🦷</div><div><h3 data-i18n="niche1_title">Cliniche Dentali</h3><p data-i18n="niche1_desc">Riduci le no-show dell'80%, automatizza promemoria e follow-up. Studio sempre pieno.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">✨</div><div><h3 data-i18n="niche2_title">Centro Estetico</h3><p data-i18n="niche2_desc">Fidelizza con riprenotazioni automatiche e referral che portano nuovi clienti ogni mese.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">🏠</div><div><h3 data-i18n="niche3_title">Agenzie Immobiliari</h3><p data-i18n="niche3_desc">Qualifica acquirenti, fissa visite e mantieni il contatto con i venditori automaticamente.</p></div></div>
+    <div class="niche-card"><div class="niche-icon">🏛️</div><div><h3 data-i18n="niche4_title">Pubblica Amministrazione</h3><p data-i18n="niche4_desc">Servizi approvati MEPA. Digitalizza i comuni con agenti AI multilingue 24/7.</p></div></div>
   </div>
 </section>
+
 <section class="demo" id="demo">
   <div class="demo-orb demo-orb-1"></div>
   <div class="demo-orb demo-orb-2"></div>
   <div class="demo-box">
-    <span class="section-tag" style="display:block;margin-bottom:14px;">Prenota la tua Demo</span>
-    <h2>Non crederci.<br/><span class="gradient-text">Verificalo dal vivo.</span></h2>
-    <p>Demo gratuita di 30 minuti via Google Meet. Ti mostro come il sistema funzionera per il tuo settore specifico.</p>
+    <span class="section-tag" style="display:block;margin-bottom:14px;" data-i18n="demo_tag">Prenota la tua Demo</span>
+    <h2 data-i18n-html="demo_title">Non crederci.<br><span class="gradient-text">Verificalo dal vivo.</span></h2>
+    <p data-i18n="demo_desc">Demo gratuita di 30 minuti via Google Meet. Ti mostro come il sistema funzionera per il tuo settore specifico.</p>
     <div class="demo-benefits">
-      <div class="demo-benefit"><span class="demo-benefit-icon">📅</span> 30 minuti</div>
-      <div class="demo-benefit"><span class="demo-benefit-icon">🎥</span> Google Meet</div>
-      <div class="demo-benefit"><span class="demo-benefit-icon">✓</span> Gratuita &amp; senza obbligo</div>
+      <div class="demo-benefit" data-i18n-html="demo_b1"><span class="demo-benefit-icon">📅</span> 30 minuti</div>
+      <div class="demo-benefit" data-i18n-html="demo_b2"><span class="demo-benefit-icon">🎥</span> Google Meet</div>
+      <div class="demo-benefit" data-i18n-html="demo_b3"><span class="demo-benefit-icon">✓</span> Gratuita &amp; senza obbligo</div>
     </div>
     <div class="demo-cta-wrap">
       <div class="demo-pulse-ring"></div>
       <div class="demo-pulse-ring demo-pulse-ring-2"></div>
-      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary btn-shimmer" style="font-size:1.1rem;padding:18px 48px;">Scegli il tuo orario →</a>
+      <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary btn-shimmer" style="font-size:1.1rem;padding:18px 48px;" data-i18n="demo_cta">Scegli il tuo orario →</a>
     </div>
-    <p class="demo-social-proof">Demo gratuita · 30 minuti · Google Meet</p>
-    <p class="demo-privacy">Prenotando accetti la nostra <a href="privacy.html">Informativa sulla Privacy</a>. I tuoi dati saranno trattati da Piccarionex esclusivamente per gestire la richiesta di demo.</p>
+    <p class="demo-social-proof" data-i18n="demo_proof">Demo gratuita · 30 minuti · Google Meet</p>
+    <p class="demo-privacy" data-i18n-html="demo_privacy">Prenotando accetti la nostra <a href="privacy.html">Informativa sulla Privacy</a>. I tuoi dati saranno trattati da Piccarionex esclusivamente per gestire la richiesta di demo.</p>
   </div>
 </section>
+
 <section class="cta-section" id="contatti">
   <div class="cta-box">
     <div>
-      <h2>Pronto a far lavorare un<br/><span class="gradient-text">sistema 24/7</span> per il tuo business?</h2>
-      <p>Demo gratuita di 30 minuti. Ti mostro come il sistema funzionera per il tuo settore.</p>
+      <h2 data-i18n-html="cta_title">Pronto a far lavorare un<br><span class="gradient-text">sistema 24/7</span> per il tuo business?</h2>
+      <p data-i18n="cta_desc">Demo gratuita di 30 minuti. Ti mostro come il sistema funzionera per il tuo settore.</p>
       <div class="cta-buttons">
         <a href="https://wa.me/393297341638" class="btn-whatsapp">💬 WhatsApp</a>
-        <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary">Prenota Demo →</a>
+        <a href="https://calendly.com/piccarionex/30min" target="_blank" class="btn-primary" data-i18n="cta_btn">Prenota Demo →</a>
       </div>
     </div>
-    <div class="cta-img"><img src="contattaci.png" alt="Contattaci Piccarionex" /></div>
+    <div class="cta-img"><img src="contattaci.png" alt="Contattaci Piccarionex"></div>
   </div>
 </section>
+
 <footer>
   <div class="footer-brand">
     <span class="footer-logo">Piccarionex</span>
     <span class="footer-domain">piccarionex.online</span>
   </div>
   <span class="footer-copy">© 2026 Piccarionex · Fabbiola Piccari · Pescara, Italia</span>
-  <div class="footer-links"><a href="privacy.html" style="color:#9B59D0;text-decoration:none;">Privacy</a> <span style="color:#666;">&middot;</span> <a href="cookie.html" style="color:#9B59D0;text-decoration:none;">Cookie</a> <span style="color:#666;">&middot;</span> <a href="termini.html" style="color:#9B59D0;text-decoration:none;">Termini</a>
+  <div class="footer-links">
+    <a href="privacy.html" style="color:#9B59D0;text-decoration:none;">Privacy</a> <span style="color:#666;">·</span> <a href="cookie.html" style="color:#9B59D0;text-decoration:none;">Cookie</a> <span style="color:#666;">·</span> <a href="termini.html" style="color:#9B59D0;text-decoration:none;">Termini</a>
     <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
     <a href="https://wa.me/393297341638">+39 329 734 1638</a>
     <a href="https://www.instagram.com/fabbiolapiccari.digitalmkt" target="_blank">@fabbiolapiccari.digitalmkt</a>
-    <a href="privacy.html" style="color:#9B59D0;text-decoration:none;">Privacy</a> <span style="color:#666;">&middot;</span> <a href="cookie.html" style="color:#9B59D0;text-decoration:none;">Cookie</a> <span style="color:#666;">&middot;</span> <a href="termini.html" style="color:#9B59D0;text-decoration:none;">Termini</a>
+    <a href="privacy.html" style="color:#9B59D0;text-decoration:none;">Privacy</a> <span style="color:#666;">·</span> <a href="cookie.html" style="color:#9B59D0;text-decoration:none;">Cookie</a> <span style="color:#666;">·</span> <a href="termini.html" style="color:#9B59D0;text-decoration:none;">Termini</a>
   </div>
 </footer>
+
 <div id="cookie-banner">
-  <p class="cookie-text">🍪 Utilizziamo cookie tecnici e di profilazione per migliorare la tua esperienza e analizzare il traffico. Leggi la nostra <a href="privacy.html">Politica sui Cookie</a>.</p>
+  <p class="cookie-text" data-i18n-html="cookie_text">🍪 Utilizziamo cookie tecnici e di profilazione per migliorare la tua esperienza e analizzare il traffico. Leggi la nostra <a href="privacy.html">Politica sui Cookie</a>.</p>
   <div class="cookie-buttons">
-    <button class="cookie-btn-reject" onclick="rejectCookies()">Solo necessari</button>
-    <button class="cookie-btn-accept" onclick="acceptCookies()">Accetta tutti</button>
+    <button class="cookie-btn-reject" onclick="rejectCookies()" data-i18n="cookie_reject">Solo necessari</button>
+    <button class="cookie-btn-accept" onclick="acceptCookies()" data-i18n="cookie_accept">Accetta tutti</button>
   </div>
 </div>
+
 <script>
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dot');
-  let current = 0, timer;
+  // ── TRANSLATIONS ──────────────────────────────────────────────────────────
+  var LANG = {
+    it: {
+      page_title: "Piccarionex · Automazione AI per il tuo Business",
+      nav_servizi: "Servizi",
+      nav_come_funziona: "Come Funziona",
+      nav_chi_sono: "Chi Sono",
+      nav_nicchie: "Nicchie",
+      nav_cta: "Prenota Demo",
+      hero_badge: "🤖 AI Automation per Business",
+      hero_h1: "Piu Appuntamenti.<br><span class=\"gradient-text\">Zero Lavoro Manuale.</span>",
+      hero_desc: "Automatizziamo il tuo sistema di acquisizione clienti con AI, workflow intelligenti e agenti vocali.",
+      hero_btn1: "Prenota Demo Gratuita",
+      hero_btn2: "Scopri i Servizi ↓",
+      stat1: "Automazione attiva senza fermarsi mai",
+      stat2: "Riduzione costo acquisizione lead",
+      stat3: "Aumento tasso di conversione",
+      stat4: "Implementazione sistema completo",
+      services_tag: "I Nostri Servizi",
+      services_title: "Tutto cio che serve per<br><span class=\"gradient-text\">scalare il tuo business</span>",
+      services_sub: "Sistemi AI chiavi in mano. Dal primo contatto alla chiusura del contratto.",
+      svc1_title: "Automazione Lead",
+      svc1_desc: "Cattura, qualifica e nutre automaticamente i lead con workflow AI su misura.",
+      svc2_title: "Agente Vocale AI",
+      svc2_desc: "Ester risponde, fissa appuntamenti e segue i prospect 24 ore su 24, 7 giorni su 7.",
+      svc3_title: "Booking Automatico",
+      svc3_desc: "Sistema di prenotazione che azzera le no-show con promemoria automatici.",
+      svc4_title: "CRM Intelligente",
+      svc4_desc: "Pipeline di vendita automatizzata con scoring dei lead e reportistica in tempo reale.",
+      svc5_title: "Funnel di Acquisizione",
+      svc5_desc: "Landing page ad alta conversione, campagne Meta/Google ottimizzate e tracciamento ROI.",
+      svc6_title: "Integrazioni API",
+      svc6_desc: "Connetti CRM, calendario, WhatsApp, email in un unico sistema fluido e automatizzato.",
+      how_tag: "Come Funziona",
+      how_title: "Da lead a cliente in<br><span class=\"gradient-text\">4 passaggi automatici</span>",
+      how_sub: "Il tuo sistema lavora anche mentre dormi.",
+      step1_title: "Cattura il Lead",
+      step1_desc: "Il sistema cattura e registra automaticamente ogni prospect nel CRM.",
+      step2_title: "Qualificazione AI",
+      step2_desc: "Ester lo contatta entro 5 minuti e fissa la demo nel tuo calendario.",
+      step3_title: "Nurturing Automatico",
+      step3_desc: "Sequenze personalizzate via email e WhatsApp mantengono il lead caldo.",
+      step4_title: "Tu Chiudi la Vendita",
+      step4_desc: "Arrivi alla call con un prospect qualificato. Il tuo unico lavoro e chiudere.",
+      ester_desc: "Agente vocale AI sempre disponibile. Risponde, gestisce appuntamenti e qualifica i lead in italiano perfetto.",
+      ester_feat1: "Risponde in meno di 5 minuti",
+      ester_feat2: "100 conversazioni simultanee",
+      ester_feat3: "Integrata con il tuo calendario",
+      ester_feat4: "Personalizzabile per settore",
+      ester_feat5: "Attiva 24/7, 365 giorni l’anno",
+      chi_tag: "Chi Sono",
+      chi_title: "\"Velocita, competenza<br>e <span class=\"gradient-text\">risultati concreti</span> —<br>in una sola persona.\"",
+      chi_bio: "Sono Fabbiola Piccari, Economista e specialista in AI Automation. Progetto e implemento sistemi di acquisizione clienti ad alto rendimento che combinano agenti AI, workflow automatizzati e strategie di marketing digitale per generare piu prospect qualificati, ridurre i costi e aumentare le conversioni.",
+      chi_cta: "Prenota la tua Demo →",
+      badge_role: "Direttrice Agenti AI",
+      mepa_badge: "🏛️ Pubblica Amministrazione",
+      mepa_title: "Servizi Approvati nel<br><span class=\"gradient-text\">Catalogo MEPA</span>",
+      mepa_desc: "Digitalizza i servizi al cittadino con Agenti IA su misura. Acquisto diretto tramite MEPA senza gara d’appalto.",
+      mepa_item1: "Acquisto diretto tramite MEPA",
+      mepa_item2: "Agente Vocale multilingue (IT, EN, ES, AR)",
+      mepa_item3: "Automazione richieste e appuntamenti",
+      mepa_item4: "Implementazione rapida senza stravolgere i sistemi esistenti",
+      mepa_item5: "Assistenza 24/7 senza aumentare il personale",
+      mepa_cta: "Richiedi Informazioni PA →",
+      video_tag: "Soluzione per ogni Settore",
+      video_title: "AI su misura per<br><span class=\"gradient-text\">il tuo settore</span>",
+      video_sub: "Guarda i nostri sistemi AI in azione. Clicca sul tuo settore.",
+      vtab0: "🦷 Clinica Dentale",
+      vtab1: "💬 Assistente Clienti",
+      vtab2: "🏠 Immobiliare",
+      vtab3: "🍽️ Ristorazione",
+      tab0_tag: "Cliniche Dentali",
+      tab0_title: "Agenda sempre piena.<br>No-show azzerati.",
+      tab0_desc: "Il tuo Agente AI risponde a ogni richiesta, fissa appuntamenti e invia promemoria automatici 24/7.",
+      tab0_cta: "Prenota Demo →",
+      tab1_tag: "Assistente Clienti",
+      tab1_title: "Il tuo assistente AI.<br>Sempre in ascolto.",
+      tab1_desc: "Il tuo Agente IA risponde alle domande dei clienti, prenota appuntamenti e gestisce richieste su WhatsApp, telefono e webchat.",
+      tab1_cta: "Prenota Demo →",
+      tab2_tag: "Immobiliare",
+      tab2_title: "Nessuna opportunita<br>persa per una risposta in ritardo.",
+      tab2_desc: "I nostri Agenti IA gestiscono le richieste sugli immobili 24/7, filtrano acquirenti seri e fissano visite sul tuo calendario.",
+      tab2_cta: "Prenota Demo →",
+      tab3_tag: "Ristorazione & Food",
+      tab3_title: "Un sito che converte<br>come un maitre di lusso.",
+      tab3_desc: "Pagina web con AI integrata, booking automatico e esperienza cliente premium per ristoranti e locali di alto livello.",
+      tab3_cta: "Prenota Demo →",
+      niches_tag: "Settori",
+      niches_title: "Specializzati nel tuo settore",
+      niches_sub: "Sistemi costruiti per ogni nicchia di mercato.",
+      niche1_title: "Cliniche Dentali",
+      niche1_desc: "Riduci le no-show dell’80%, automatizza promemoria e follow-up. Studio sempre pieno.",
+      niche2_title: "Centro Estetico",
+      niche2_desc: "Fidelizza con riprenotazioni automatiche e referral che portano nuovi clienti ogni mese.",
+      niche3_title: "Agenzie Immobiliari",
+      niche3_desc: "Qualifica acquirenti, fissa visite e mantieni il contatto con i venditori automaticamente.",
+      niche4_title: "Pubblica Amministrazione",
+      niche4_desc: "Servizi approvati MEPA. Digitalizza i comuni con agenti AI multilingue 24/7.",
+      demo_tag: "Prenota la tua Demo",
+      demo_title: "Non crederci.<br><span class=\"gradient-text\">Verificalo dal vivo.</span>",
+      demo_desc: "Demo gratuita di 30 minuti via Google Meet. Ti mostro come il sistema funzionera per il tuo settore specifico.",
+      demo_b1: "<span class=\"demo-benefit-icon\">📅</span> 30 minuti",
+      demo_b2: "<span class=\"demo-benefit-icon\">🎥</span> Google Meet",
+      demo_b3: "<span class=\"demo-benefit-icon\">✓</span> Gratuita &amp; senza obbligo",
+      demo_cta: "Scegli il tuo orario →",
+      demo_proof: "Demo gratuita · 30 minuti · Google Meet",
+      demo_privacy: "Prenotando accetti la nostra <a href=\"privacy.html\">Informativa sulla Privacy</a>. I tuoi dati saranno trattati da Piccarionex esclusivamente per gestire la richiesta di demo.",
+      cta_title: "Pronto a far lavorare un<br><span class=\"gradient-text\">sistema 24/7</span> per il tuo business?",
+      cta_desc: "Demo gratuita di 30 minuti. Ti mostro come il sistema funzionera per il tuo settore.",
+      cta_btn: "Prenota Demo →",
+      cookie_text: "🍪 Utilizziamo cookie tecnici e di profilazione per migliorare la tua esperienza e analizzare il traffico. Leggi la nostra <a href=\"privacy.html\">Politica sui Cookie</a>.",
+      cookie_reject: "Solo necessari",
+      cookie_accept: "Accetta tutti"
+    },
+    en: {
+      page_title: "Piccarionex · AI Automation for your Business",
+      nav_servizi: "Services",
+      nav_come_funziona: "How It Works",
+      nav_chi_sono: "About Me",
+      nav_nicchie: "Niches",
+      nav_cta: "Book Demo",
+      hero_badge: "🤖 AI Automation for Business",
+      hero_h1: "More Appointments.<br><span class=\"gradient-text\">Zero Manual Work.</span>",
+      hero_desc: "We automate your client acquisition system with AI, intelligent workflows and voice agents.",
+      hero_btn1: "Book Free Demo",
+      hero_btn2: "Discover Services ↓",
+      stat1: "Active automation without stopping",
+      stat2: "Reduction in lead acquisition cost",
+      stat3: "Increase in conversion rate",
+      stat4: "Complete system implementation",
+      services_tag: "Our Services",
+      services_title: "Everything you need to<br><span class=\"gradient-text\">scale your business</span>",
+      services_sub: "Turnkey AI systems. From first contact to contract closure.",
+      svc1_title: "Lead Automation",
+      svc1_desc: "Automatically capture, qualify and nurture leads with custom AI workflows.",
+      svc2_title: "AI Voice Agent",
+      svc2_desc: "Ester answers, books appointments and follows up on prospects 24 hours a day, 7 days a week.",
+      svc3_title: "Automatic Booking",
+      svc3_desc: "Booking system that eliminates no-shows with automatic reminders.",
+      svc4_title: "Intelligent CRM",
+      svc4_desc: "Automated sales pipeline with lead scoring and real-time reporting.",
+      svc5_title: "Acquisition Funnel",
+      svc5_desc: "High-conversion landing pages, optimized Meta/Google campaigns and ROI tracking.",
+      svc6_title: "API Integrations",
+      svc6_desc: "Connect CRM, calendar, WhatsApp, email in a single fluid and automated system.",
+      how_tag: "How It Works",
+      how_title: "From lead to client in<br><span class=\"gradient-text\">4 automatic steps</span>",
+      how_sub: "Your system works even while you sleep.",
+      step1_title: "Capture the Lead",
+      step1_desc: "The system automatically captures and registers every prospect in the CRM.",
+      step2_title: "AI Qualification",
+      step2_desc: "Ester contacts them within 5 minutes and books the demo in your calendar.",
+      step3_title: "Automatic Nurturing",
+      step3_desc: "Personalized email and WhatsApp sequences keep the lead warm.",
+      step4_title: "You Close the Sale",
+      step4_desc: "You arrive at the call with a qualified prospect. Your only job is to close.",
+      ester_desc: "AI voice agent always available. Answers, manages appointments and qualifies leads in perfect Italian.",
+      ester_feat1: "Responds in less than 5 minutes",
+      ester_feat2: "100 simultaneous conversations",
+      ester_feat3: "Integrated with your calendar",
+      ester_feat4: "Customizable by sector",
+      ester_feat5: "Active 24/7, 365 days a year",
+      chi_tag: "About Me",
+      chi_title: "\"Speed, expertise<br>and <span class=\"gradient-text\">concrete results</span> —<br>in a single person.\"",
+      chi_bio: "I am Fabbiola Piccari, Economist and AI Automation specialist. I design and implement high-performance client acquisition systems that combine AI agents, automated workflows and digital marketing strategies to generate more qualified prospects, reduce costs and increase conversions.",
+      chi_cta: "Book your Demo →",
+      badge_role: "AI Agents Director",
+      mepa_badge: "🏛️ Public Administration",
+      mepa_title: "Services Approved in the<br><span class=\"gradient-text\">MEPA Catalog</span>",
+      mepa_desc: "Digitize citizen services with custom AI Agents. Direct purchase through MEPA without tender.",
+      mepa_item1: "Direct purchase through MEPA",
+      mepa_item2: "Multilingual Voice Agent (IT, EN, ES, AR)",
+      mepa_item3: "Request and appointment automation",
+      mepa_item4: "Rapid implementation without disrupting existing systems",
+      mepa_item5: "24/7 assistance without increasing staff",
+      mepa_cta: "Request PA Information →",
+      video_tag: "Solution for Every Sector",
+      video_title: "Custom AI for<br><span class=\"gradient-text\">your sector</span>",
+      video_sub: "See our AI systems in action. Click on your sector.",
+      vtab0: "🦷 Dental Clinic",
+      vtab1: "💬 Customer Assistant",
+      vtab2: "🏠 Real Estate",
+      vtab3: "🍽️ Restaurant",
+      tab0_tag: "Dental Clinics",
+      tab0_title: "Always full schedule.<br>No-shows eliminated.",
+      tab0_desc: "Your AI Agent responds to every request, books appointments and sends automatic reminders 24/7.",
+      tab0_cta: "Book Demo →",
+      tab1_tag: "Customer Assistant",
+      tab1_title: "Your AI assistant.<br>Always listening.",
+      tab1_desc: "Your AI Agent answers customer questions, books appointments and manages requests on WhatsApp, phone and webchat.",
+      tab1_cta: "Book Demo →",
+      tab2_tag: "Real Estate",
+      tab2_title: "No opportunity<br>lost to a late response.",
+      tab2_desc: "Our AI Agents manage property requests 24/7, filter serious buyers and book visits in your calendar.",
+      tab2_cta: "Book Demo →",
+      tab3_tag: "Restaurant & Food",
+      tab3_title: "A website that converts<br>like a luxury maitre d’.",
+      tab3_desc: "Website with integrated AI, automatic booking and premium customer experience for high-end restaurants and venues.",
+      tab3_cta: "Book Demo →",
+      niches_tag: "Sectors",
+      niches_title: "Specialized in your sector",
+      niches_sub: "Systems built for every market niche.",
+      niche1_title: "Dental Clinics",
+      niche1_desc: "Reduce no-shows by 80%, automate reminders and follow-ups. Practice always full.",
+      niche2_title: "Beauty Center",
+      niche2_desc: "Retain customers with automatic rebookings and referrals that bring new clients every month.",
+      niche3_title: "Real Estate Agencies",
+      niche3_desc: "Qualify buyers, book visits and maintain contact with sellers automatically.",
+      niche4_title: "Public Administration",
+      niche4_desc: "MEPA-approved services. Digitize municipalities with multilingual AI agents 24/7.",
+      demo_tag: "Book your Demo",
+      demo_title: "Don’t believe it.<br><span class=\"gradient-text\">See it live.</span>",
+      demo_desc: "Free 30-minute demo via Google Meet. I will show you how the system will work for your specific sector.",
+      demo_b1: "<span class=\"demo-benefit-icon\">📅</span> 30 minutes",
+      demo_b2: "<span class=\"demo-benefit-icon\">🎥</span> Google Meet",
+      demo_b3: "<span class=\"demo-benefit-icon\">✓</span> Free &amp; no obligation",
+      demo_cta: "Choose your time →",
+      demo_proof: "Free demo · 30 minutes · Google Meet",
+      demo_privacy: "By booking you accept our <a href=\"privacy.html\">Privacy Policy</a>. Your data will be processed by Piccarionex exclusively to handle the demo request.",
+      cta_title: "Ready to put a<br><span class=\"gradient-text\">24/7 system</span> to work for your business?",
+      cta_desc: "Free 30-minute demo. I will show you how the system will work for your sector.",
+      cta_btn: "Book Demo →",
+      cookie_text: "🍪 We use technical and profiling cookies to improve your experience and analyze traffic. Read our <a href=\"privacy.html\">Cookie Policy</a>.",
+      cookie_reject: "Only necessary",
+      cookie_accept: "Accept all"
+    },
+    es: {
+      page_title: "Piccarionex · Automatización IA para tu Negocio",
+      nav_servizi: "Servicios",
+      nav_come_funziona: "Cómo Funciona",
+      nav_chi_sono: "Quién Soy",
+      nav_nicchie: "Nichos",
+      nav_cta: "Reserva Demo",
+      hero_badge: "🤖 AI Automation para Negocios",
+      hero_h1: "Más Citas.<br><span class=\"gradient-text\">Cero Trabajo Manual.</span>",
+      hero_desc: "Automatizamos tu sistema de captación de clientes con IA, flujos de trabajo inteligentes y agentes de voz.",
+      hero_btn1: "Reserva Demo Gratuita",
+      hero_btn2: "Descubre los Servicios ↓",
+      stat1: "Automatización activa sin parar",
+      stat2: "Reducción del costo de captación de leads",
+      stat3: "Aumento de la tasa de conversión",
+      stat4: "Implementación del sistema completo",
+      services_tag: "Nuestros Servicios",
+      services_title: "Todo lo que necesitas para<br><span class=\"gradient-text\">escalar tu negocio</span>",
+      services_sub: "Sistemas de IA llave en mano. Del primer contacto al cierre del contrato.",
+      svc1_title: "Automatización de Leads",
+      svc1_desc: "Captura, califica y nutre automáticamente los leads con flujos de trabajo de IA personalizados.",
+      svc2_title: "Agente de Voz IA",
+      svc2_desc: "Ester responde, fija citas y hace seguimiento de los prospectos 24 horas al día, 7 días a la semana.",
+      svc3_title: "Reserva Automática",
+      svc3_desc: "Sistema de reservas que elimina las no-show con recordatorios automáticos.",
+      svc4_title: "CRM Inteligente",
+      svc4_desc: "Pipeline de ventas automatizado con puntuación de leads e informes en tiempo real.",
+      svc5_title: "Embudo de Captación",
+      svc5_desc: "Landing pages de alta conversión, campañas Meta/Google optimizadas y seguimiento del ROI.",
+      svc6_title: "Integraciones API",
+      svc6_desc: "Conecta CRM, calendario, WhatsApp, email en un único sistema fluido y automatizado.",
+      how_tag: "Cómo Funciona",
+      how_title: "De lead a cliente en<br><span class=\"gradient-text\">4 pasos automáticos</span>",
+      how_sub: "Tu sistema trabaja incluso mientras duermes.",
+      step1_title: "Captura el Lead",
+      step1_desc: "El sistema captura y registra automáticamente cada prospecto en el CRM.",
+      step2_title: "Calificación IA",
+      step2_desc: "Ester lo contacta en menos de 5 minutos y fija la demo en tu calendario.",
+      step3_title: "Nurturing Automático",
+      step3_desc: "Secuencias personalizadas por email y WhatsApp mantienen el lead caliente.",
+      step4_title: "Tú Cierras la Venta",
+      step4_desc: "Llegas a la llamada con un prospecto calificado. Tu único trabajo es cerrar.",
+      ester_desc: "Agente de voz IA siempre disponible. Responde, gestiona citas y califica leads en italiano perfecto.",
+      ester_feat1: "Responde en menos de 5 minutos",
+      ester_feat2: "100 conversaciones simultáneas",
+      ester_feat3: "Integrada con tu calendario",
+      ester_feat4: "Personalizable por sector",
+      ester_feat5: "Activa 24/7, 365 días al año",
+      chi_tag: "Quién Soy",
+      chi_title: "\"Velocidad, competencia<br>y <span class=\"gradient-text\">resultados concretos</span> —<br>en una sola persona.\"",
+      chi_bio: "Soy Fabbiola Piccari, Economista y especialista en AI Automation. Diseño e implemento sistemas de captación de clientes de alto rendimiento que combinan agentes IA, flujos de trabajo automatizados y estrategias de marketing digital para generar más prospectos calificados, reducir costes y aumentar las conversiones.",
+      chi_cta: "Reserva tu Demo →",
+      badge_role: "Directora de Agentes IA",
+      mepa_badge: "🏛️ Administración Pública",
+      mepa_title: "Servicios Aprobados en el<br><span class=\"gradient-text\">Catálogo MEPA</span>",
+      mepa_desc: "Digitaliza los servicios al ciudadano con Agentes IA personalizados. Compra directa a través de MEPA sin licitación.",
+      mepa_item1: "Compra directa a través de MEPA",
+      mepa_item2: "Agente de Voz multilingüe (IT, EN, ES, AR)",
+      mepa_item3: "Automatización de solicitudes y citas",
+      mepa_item4: "Implementación rápida sin alterar los sistemas existentes",
+      mepa_item5: "Asistencia 24/7 sin aumentar el personal",
+      mepa_cta: "Solicitar Información PA →",
+      video_tag: "Solución para Cada Sector",
+      video_title: "IA personalizada para<br><span class=\"gradient-text\">tu sector</span>",
+      video_sub: "Mira nuestros sistemas de IA en acción. Haz clic en tu sector.",
+      vtab0: "🦷 Clínica Dental",
+      vtab1: "💬 Asistente Clientes",
+      vtab2: "🏠 Inmobiliaria",
+      vtab3: "🍽️ Restauración",
+      tab0_tag: "Clínicas Dentales",
+      tab0_title: "Agenda siempre llena.<br>No-shows eliminados.",
+      tab0_desc: "Tu Agente IA responde a cada solicitud, fija citas y envía recordatorios automáticos 24/7.",
+      tab0_cta: "Reserva Demo →",
+      tab1_tag: "Asistente Clientes",
+      tab1_title: "Tu asistente IA.<br>Siempre disponible.",
+      tab1_desc: "Tu Agente IA responde las preguntas de los clientes, reserva citas y gestiona solicitudes en WhatsApp, teléfono y webchat.",
+      tab1_cta: "Reserva Demo →",
+      tab2_tag: "Inmobiliaria",
+      tab2_title: "Ninguna oportunidad<br>perdida por una respuesta tardía.",
+      tab2_desc: "Nuestros Agentes IA gestionan las solicitudes de inmuebles 24/7, filtran compradores serios y fijan visitas en tu calendario.",
+      tab2_cta: "Reserva Demo →",
+      tab3_tag: "Restauración & Food",
+      tab3_title: "Un sitio que convierte<br>como un maître de lujo.",
+      tab3_desc: "Página web con IA integrada, reserva automática y experiencia cliente premium para restaurantes y locales de alto nivel.",
+      tab3_cta: "Reserva Demo →",
+      niches_tag: "Sectores",
+      niches_title: "Especializados en tu sector",
+      niches_sub: "Sistemas construidos para cada nicho de mercado.",
+      niche1_title: "Clínicas Dentales",
+      niche1_desc: "Reduce las no-show en un 80%, automatiza recordatorios y seguimiento. Consulta siempre llena.",
+      niche2_title: "Centro Estético",
+      niche2_desc: "Fideliza con reprogramaciones automáticas y referidos que traen nuevos clientes cada mes.",
+      niche3_title: "Agencias Inmobiliarias",
+      niche3_desc: "Califica compradores, fija visitas y mantén contacto con los vendedores automáticamente.",
+      niche4_title: "Administración Pública",
+      niche4_desc: "Servicios aprobados MEPA. Digitaliza los municipios con agentes IA multilingüe 24/7.",
+      demo_tag: "Reserva tu Demo",
+      demo_title: "No te lo creas.<br><span class=\"gradient-text\">Verifícalo en vivo.</span>",
+      demo_desc: "Demo gratuita de 30 minutos por Google Meet. Te muestro cómo funcionará el sistema para tu sector específico.",
+      demo_b1: "<span class=\"demo-benefit-icon\">📅</span> 30 minutos",
+      demo_b2: "<span class=\"demo-benefit-icon\">🎥</span> Google Meet",
+      demo_b3: "<span class=\"demo-benefit-icon\">✓</span> Gratuita &amp; sin compromiso",
+      demo_cta: "Elige tu horario →",
+      demo_proof: "Demo gratuita · 30 minutos · Google Meet",
+      demo_privacy: "Al reservar aceptas nuestra <a href=\"privacy.html\">Política de Privacidad</a>. Tus datos serán tratados por Piccarionex exclusivamente para gestionar la solicitud de demo.",
+      cta_title: "¿Listo para hacer trabajar un<br><span class=\"gradient-text\">sistema 24/7</span> para tu negocio?",
+      cta_desc: "Demo gratuita de 30 minutos. Te muestro cómo funcionará el sistema para tu sector.",
+      cta_btn: "Reserva Demo →",
+      cookie_text: "🍪 Usamos cookies técnicas y de perfilado para mejorar tu experiencia y analizar el tráfico. Lee nuestra <a href=\"privacy.html\">Política de Cookies</a>.",
+      cookie_reject: "Solo necesarias",
+      cookie_accept: "Aceptar todo"
+    }
+  };
+
+  function setLang(lang) {
+    if (!LANG[lang]) return;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.dataset.i18n;
+      if (LANG[lang][key] !== undefined) el.textContent = LANG[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+      var key = el.dataset.i18nHtml;
+      if (LANG[lang][key] !== undefined) el.innerHTML = LANG[lang][key];
+    });
+    if (LANG[lang].page_title) document.title = LANG[lang].page_title;
+    try { localStorage.setItem('piccarionex_lang', lang); } catch(e) {}
+  }
+
+  (function() {
+    var saved;
+    try { saved = localStorage.getItem('piccarionex_lang'); } catch(e) {}
+    setLang(saved || 'it');
+  })();
+
+  // ── SLIDER ────────────────────────────────────────────────────────────────
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-dot');
+  var current = 0, timer;
   function goToSlide(n) {
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
@@ -453,28 +875,27 @@
     current = n;
     slides[current].classList.add('active');
     dots[current].classList.add('active');
-    const bg = slides[current].querySelector('.slide-bg');
+    var bg = slides[current].querySelector('.slide-bg');
     bg.style.animation = 'none'; bg.offsetHeight; bg.style.animation = '';
     clearInterval(timer); timer = setInterval(nextSlide, 6000);
   }
   function nextSlide() { goToSlide((current + 1) % slides.length); }
-  function switchTab(n) {
-    document.querySelectorAll('.vtab').forEach((t,i) => t.classList.toggle('active', i===n));
-    document.querySelectorAll('.vtab-content').forEach((c,i) => c.classList.toggle('active', i===n));
-  }
   timer = setInterval(nextSlide, 6000);
+
+  // ── TABS ──────────────────────────────────────────────────────────────────
+  function switchTab(n) {
+    document.querySelectorAll('.vtab').forEach(function(t, i) { t.classList.toggle('active', i === n); });
+    document.querySelectorAll('.vtab-content').forEach(function(c, i) { c.classList.toggle('active', i === n); });
+  }
+
+  // ── COOKIE ────────────────────────────────────────────────────────────────
   function showCookieBanner() {
     try { if (!localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').style.display = 'flex'; }
     catch(e) { document.getElementById('cookie-banner').style.display = 'flex'; }
   }
-  function acceptCookies() { try { localStorage.setItem('cookie_consent','accepted'); } catch(e){} document.getElementById('cookie-banner').style.display='none'; }
-  function rejectCookies() { try { localStorage.setItem('cookie_consent','rejected'); } catch(e){} document.getElementById('cookie-banner').style.display='none'; }
+  function acceptCookies() { try { localStorage.setItem('cookie_consent', 'accepted'); } catch(e){} document.getElementById('cookie-banner').style.display = 'none'; }
+  function rejectCookies() { try { localStorage.setItem('cookie_consent', 'rejected'); } catch(e){} document.getElementById('cookie-banner').style.display = 'none'; }
   window.addEventListener('load', showCookieBanner);
 </script>
 </body>
 </html>
-
-
-
-
-
