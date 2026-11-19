@@ -187,6 +187,9 @@
     .footer-links{display:flex;gap:24px;flex-wrap:wrap}
     .footer-links a{color:var(--gray);text-decoration:none;font-size:.85rem;transition:color .2s}
     .footer-links a:hover{color:var(--violet-glow)}
+    .footer-social{display:inline-flex;gap:10px;align-items:center}
+    .footer-links a.social-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--card-bg);border:1px solid var(--card-border);color:var(--violet-glow);transition:background .2s,color .2s,transform .2s}
+    .footer-links a.social-btn:hover{background:var(--violet);color:var(--white);transform:translateY(-2px)}
     #cookie-banner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(14,14,28,0.98);border-top:1px solid rgba(192,132,252,0.3);padding:20px 6%;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;backdrop-filter:blur(16px)}
     .cookie-text{color:var(--gray-light);font-size:.88rem;line-height:1.6;margin:0;max-width:680px}
     .cookie-text a{color:var(--violet-glow);text-decoration:underline}
@@ -504,7 +507,14 @@ src="https://www.facebook.com/tr?id=2084038398980199&ev=PageView&noscript=1"
     <a href="privacy.html" style="color:#9B59D0;text-decoration:none;">Privacy</a> <span style="color:#666;">·</span> <a href="cookie.html" style="color:#9B59D0;text-decoration:none;">Cookie</a> <span style="color:#666;">·</span> <a href="termini.html" style="color:#9B59D0;text-decoration:none;">Termini</a>
     <a href="mailto:fabbiola@piccarionex.online">fabbiola@piccarionex.online</a>
     <a href="https://wa.me/393297341638">+39 329 734 1638</a>
-    <a href="https://www.instagram.com/fabbiolapiccari.digitalmkt" target="_blank">@fabbiolapiccari.digitalmkt</a>
+    <span class="footer-social">
+      <a class="social-btn" href="https://www.instagram.com/fabbiolapiccari.digitalmkt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="social-btn" href="https://www.linkedin.com/company/146718757" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.83v1.54h.05c.53-1.01 1.84-2.08 3.79-2.08 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.96c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62V21h-4z"/></svg>
+      </a>
+    </span>
     <a href="privacy.html" style="color:#9B59D0;text-decoration:none;">Privacy</a> <span style="color:#666;">·</span> <a href="cookie.html" style="color:#9B59D0;text-decoration:none;">Cookie</a> <span style="color:#666;">·</span> <a href="termini.html" style="color:#9B59D0;text-decoration:none;">Termini</a>
   </div>
 </footer>
